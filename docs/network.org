@@ -1,0 +1,803 @@
+* Computer Networks and the Internet
+
+** Internet overview
+
+*** Devices
++ host = end system, runs apps
+
+*** Communication Links
++ fiber, copper, radio, satellite
+
+*** Packet switches
++ routers and switches
+
+** Service view of the internet
+*** Provider of services to apps
++ Web, VoIP, email, games, eCommerce, social net
+
+*** Programming interface to apps
++ hooks
++ service options (postal)
+
+
+** Protocols
+*** Definition
+A protocol defines the format and the order of messages exchanged
+between two or more communicating entitites, as well as the actions
+taken on the transmission and/or receipt of a message or other event.
+
+*** Required
++ format
++ order of messages
+
+** Network edge
+*** Access networks
++ Wired, wireless comms links
+How does one connect an edge to a router?
+
++ Frequency division multiplexing
++ Cable network is shared
++ HFC: hybrid fiber coax
++ fiber homes -> ISP router
++ DSL
++ Ethernet
+
++ WLAN: IEEE_802.11
+
+*** Physical media
++ Guided (wires)
++ Unguided (radio)
++ Physical link (transmitter, {$x}, receiver)
++ Bit (propagates between)
+
+  
+** Network core
+*** Interconnected routers
++ mesh of interconnected routing packets transmitted at full link
+  capacity
+
+*** Delay, loss and throughput in Packet switched networks
+
++ store and forward
+
+
+#+begin_src artist
+
+ Source     Router    Destination
+|       |____________|       |
+|_______|            |_______|
+  
+   R_bps               R_bps
+#+end_src
+
+L bits per packet
+
++ End to end delay (assumes zero propagation delay) = 2L / R 
+
+*** Queing, delay, loss
+
+#+BEGIN_SRC plantuml :file my-diagram.png
+digraph foo {
+ Tier_1_ISP -> IXP -> access_isp -> Regional_isp
+ Tier_1_ISP -> Regional_isp ->  access_isp -> IXP
+ Google -> IXP -> access_isp
+ Google -> Tier_1_ISP -> Google;
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:../img/my-diagram.png]]
+
+*** Sources of delay 
++ transmission
++ nodal processing
++ queuing
+
+#+PLOT: title:"Queuing Delay/Traffic Intensity" ind:1 deps:(2) type:2d with:lines set:"yrange [0:]"
+[[file:../img/qDelay.png]]
+
+| traffic intensity = L_a/R | Avg. queuing delay |
+|                         1 |                  0 |
+|                         2 |                  1 |
+|                         4 |                  2 |
+|                         8 |                  3 |
+|                        16 |                  4 |
+|                        32 |                  5 |
+|                        64 |                  6 |
+|                       128 |                  7 |
+|                       256 |                  8 |
+|                       512 |                  9 |
+
+
+L_a/R ~ 0 : avg. q delay small
+
+L_a/R <= 1 : avg. q delay large
+
+L_a/R > 1 : more work arriving than can be serviced average delay
+infinite
+
+*** Packet loss
+Buffer has finit capacity 
+
+packet \rightarrow full queue = dropout
+
+
+** Protocol Layers
+
+
+#+BEGIN_SRC plantuml :file networklayers.png
+ditaa(--no-shadows, scale=0.8)
+/--------\   +-------+
+|cAAA    +---+ FTP,  | 
+|  Appl. |   | SMTP, |
+|        |   | HTTP  |
+|     {s}|   +-------+
+\---+----/
+/--------\   +-------+
+|cAAA    +---+ TCP,  |
+|  trans.|   | UDP   |
+|        |   +-------+
+|     {s}|
+\---+----/
+/--------\   +-------+
+|cAAA    |   + IP    |
+|  net   |   | Rout  |
+|  work  |   +-------+
+|     {s}|   
+\---+----/
+/--------\   +--------+
+|cAAA    +---+ EthNet |
+|  link  |   | 802.11 |
+|        |   +--------+
+|     {s}|
+\---+----/
+/--------\   +--------+
+|cAAA    +---+ bits on|
+|  phys. |   | wire   |
+|        |   +--------+
+|     {s}|
+\---+----/
+
+#+END_SRC 
+
+#+RESULTS:
+[[file:../img/networklayers.png]]
+
+*** iso/osi Reference Model
+
+Encapsulation 
+
+
+#+BEGIN_SRC artist
+
++-------------------+ A |   | A +-------------------+
+|               M   |---+   |---+                M  |
+|-------------------| T |   | T |-------------------|
+|           H_t M   |---+   |---+            H_t M  |
+|-------------------| N |   | N |-------------------|
+|       H_n H_t M   |---+   |---+        H_n H_t M  |
+|-------------------| L |   | L |-------------------|
+|    H_l H_n H_t M  |---+   |---+     H_l H_n H_t M |
+|-------------------| P |   | P |-------------------|
+
+#+END_SRC
+
+  Source \rightarrow     Switch \rightarrow      Router \rightarrow     Destination 
+
+
+** Network Security
+
+Internet was originally designed to be used be mutuall trusting users
+attached to a transparent network.
+
+*** Malware
+ + *Virus*: self-replicating infection by receiving/executing object
+   (email attachment)
+ + *Worm*: self-replicating infection by passively receiving object
+   that gets itself executed
+ + *Spyware*: record keystrokes, web sites visited, upload info to
+
+Infected host can be enrolled in botnet, used for spam. DDOS attacks.
+
++ *DDOS attacks*: make resources unavailable to legitimate traffic by
+  overwhelming with bogus traffic
+
+*** Packet "sniffing" & IP Spoofing
++ Broadcast media
++ Promiscuous network interface reads/records all packets passing by
++ Send packet with false source address
+
+
+
+
+* Application layer
+
+** Web and HTTP
+*** Client-Server Architecture
+
+#+BEGIN_SRC plantuml :file clientserver.png
+
+Client -> Server
+Server -> Client
+
+#+END_SRC
+
+#+RESULTS:
+[[file:../img/clientserver.png]]
+
+| *Client*                                    | *Server*                 |
+|---------------------------------------------+--------------------------|
+| Communicates with server                    | Always on host           |
+|---------------------------------------------+--------------------------|
+| May be intermittantly connected             | Permanent IP             |
+|---------------------------------------------+--------------------------|
+| May have dynamic IP                         | Data centers for scaling |
+|---------------------------------------------+--------------------------|
+| Do not communicate directly with each other |                          |
+
+*** Process Communicating
+Client process intiates comms, server process waits for contact
+
+*** Process 
++ Running within a host 
++ Withing same host, two processes communicating using inter-process
+  communiation (defined by OS)
++ Processes in different hosts communicated by exchanging messages 
+
+*** Sockets 
+
+#+BEGIN_SRC artist
+
+     V                  ^
+ +---v-----+        +---^-----+  
+ |_V_V_V_V_|        |_V_V_V_V_|
+
+#+END_SRC
+
+*Addressing Processes*
++ to receive messages, process must have ID
++ IP = 32 bit
++ identified = IP + Port
++ HTTP server: 80
++ Mail server: 25
+
+*Application Layer Protocol*
+
+Defines:
++ dypes of messages exchanged (eg: request, response)
++ msg syntax (fields and delineation)
++ msg semantics
+
+*** Protocols 
+
+Open protocols:
++ defined in RFC
++ allows for interoperatbility
++ eg: http, smtp
+
+Proprietary protocols:
++ eg. sype
+
+Transport service for an app
++ 100% reliable?
++ can tolerate loss
++ low latency
++ multimedia, minimum throughput
++ "elastic apps" whatever throughput
++ encryption data integration
+
+Different apps need different architecture to accommodate all user
+requirements
+
+*TCP (Transmission Control Protocol)*
++ Reliable transport send \rightarrow receive
++ Flow control (doesn't overwhelm receiver)
++ Congestion control (throttle sender when network overloaded)
++ Does not provide: timing, minimum throughput guarantee
++ Connection oriented: setup required between client & server process
+
+*UDP (User Datagram Protocol)*
++ unreliable data transfer between sending and receiving
++ does not provide: reliability, flow control, congestion control,
+  timing, throughput guarantee, security, or connection setup
+
+
+| *App*                  | *App layer protocol*  | *underlying transport protocol* |
+|------------------------+-----------------------+---------------------------------|
+| email                  | SMTP [RFC 2821]       | TCP                             |
+| remote terminal access | Telnet [RFC 854]      | TCP                             |
+| web                    | HTTP [RFC 2616]       | TCP                             |
+| file transfer          | FTP [RFC 959]         | TCP                             |
+| streaming              | http [rtp 1889]       | TCP or UDP                      |
+| VoIP                   | SIP, RTP, proprietary | TCP or UDP                      |
+
+*** HTTP 
+HTTP is a stateless protocol, server maintains no info about previous
+client requests
+*uses TCP*
++ client initiates
++ server accepts
++ http messages (application-layer protocol messages) exchanged
+  between browser (http client) and web server (http server)
++ TCP connection closed
+
+*non-persistent*
++ At most one object sent over TCP connection
++ connection then closed
++ downloading multiple objects required multiple connections 
+
+*persistent*
++ multiple objects can be sent over single TCP connection between
+  client, server
+
+#+BEGIN_SRC plantuml :file http.png
+
+ client -> server: Start TCP
+ note left
+    RTT
+ end note
+ server --> client: Accept request
+
+ client -> server: Request file
+ note left
+    RTT
+ end note
+ server --> client: Send file
+ note right 
+    time to transmit file
+ end note
+
+#+END_SRC
+#+CAPTION: HTTP Response Time = 2 RTT + file transmission time
+
+#+RESULTS:
+[[file:../img/http.png]]
+
+*** User-server state: Cookies
+Four components:
+1. Cookie header line of http response message
+2. cookie header line in next http request message
+3. cookie file kept on user's host, managed by browser
+4. backend database at website
+
+*uses*
++ authentication
++ shop cart
++ recommend
++ user session state (webmail)
+
+*cookies and privacy*
++ permit site to learn about users 
+
+*** Web caches (proxy server)
++ acts as both client and server 
++ typcially installed by ISP (uni, company, residential)
++ reduce response time
++ reduce traffic on access link
+
+*** conditional GET
+
++ *goal*: don't send object if cache has up to date cached version
++ *cache*: specify date of cached copy in http request
++ *server*: response contains no object if cached copy up to date
+
+** FTP
+File Transfer Protocol 
+
++ to/from remote host
++ client/server model
+  - initiated by client
+  - server: remote host
++ Ftp: RFC 959
++ Ftp server: port 21
+
+** Electronic mail: SMTP, POP3, IMAP
++ User agent
++ mail server
++ SMTP
+
+*Uses TCP on port 25*
+Three phases:
++ handshaking
++ Transfer
++ closure
+
+*** POP3
++ download & delete
++ cannot re-read file after client change
++ stateless across sessions
++ download-and-keep copies and different clients
+
+*** IMAP
++ keeps messages in one place:server
++ allows user to organize messages in folders
++ keeps user state accross sessions:
+   - names of folders and mappings between message IDs and folder name
+
+** DNS
+Domain Name System
+
++ Names map IP to readable format
++ Distributed database implemented in hierarchy of many name servers
++ application-layer protocol: hosts, name servers communicate to
+  resolve names (address/name translation)
+    - Note: core interenet function implemented as application-layer
+      protocol complexity at network's edge
+
++ *Root DNS Servers* over 400 worldwide (2016 numbers)
++ *Top-level domain (TLD) servers* for each of {com, org, ned, edu,
+  gov, ie, at, jp, etc) there is a server or server cluster
++ *Authoratative DNS servers* publicly accessible records that map the
+  names of the host companies to IP addreses
+
+
+*** DNS Services 
++ Hostname to IP address translation
++ host aliasing
+  - canonical alias names
++ mail server aliasing
++ load distribution 
+  - replicated web servers: many IP addresses correspond to one name
+
+*Why not centralize DNS?*
++ single point of failure
++ traffic volume
++ distant centralized database
++ maintenance
++ doesn't scale
+
+*** DNS Records
+
+DNS: distributed db storing resource records (RR) 
+
+RR Format: (name, value, type, ttl)
+
+*type=A*
++ name is hostname
++ value is IP
+
+*type=NS*
++ name is domain
++ value is hostname of authoratative name server for this domain
+
+*type=CNAME*
++ name is alias for some "canonical" real name
++ www.ibm.com
+  - servereast.backup2.ibm.com
+  - value is canonical name
+
+*type=MX*
++ value is name of mail server associated with name
+
+
+*** Attacking DNS
+
+*DDoS attacks*
++ Bombard servers with traffic
+  - Not succseful to date
+  - traffic filtered
+  - local DNS servers cache IPs of TLD servers, allowing root server
+    bypass
++ Bombard TLD (top level domain) servers
+  - potentially more dangerous
+
+*Redirect attacks*
++ man in the middle attacks
+    - intercept queries
++ DNS poisoning
+    - send bogus replies to DNS server, which caches
+
+*Exploit DNS for DDoS*
++ send queries with spoofed source address: target IP
++ requires amplification
+
+** Principles of network applications
+*** Server/client 
++ send one copy F/u_S
++ send N copes NF/u_s
+
+Client must download file copy
++ d_min = min client dl rate
++ min client download time: F/d_min
+
+*Distribution time*
+
+D_c-s > mac{NF/u_s , F/d_min}
+
+*** P2P 
+
+Max upload rate:  u_s + \Sigma u_i
+
+distribution time (/increases linearly in N/):
+
+ D_p2p > max { F/u_s, F/d_min, NF/(u_s + \Sigma u_i) }
+
+
+
+
+
+** P2P Apps
+Commonly used to distribute software
+
+Distributed hash table (DHT)
+
+DHT: a distributed P2P database
+
+
+* Transport Layer 
+
+** Transport Services & Protocols
++ Provide logical communication between app processes running on
+  different hosts 
++ Transport protocols run in and systems
+  - Send side: breaks app messages into segments, passes to network layer
+  - receiveer side: reassemble segments into messages, passes to app
+    layer
++ More than one transport protocol available to apps
+  - Internet: TCP & UDP
+
+** Multiplexing and Demultiplexing
++ Multiplexing at sender: handle data from multiple sockets, add
+  transport  header (later used for demultiplexing)
++ Demultiplexing at receiver: use header info to deliver received
+  segments to correct socket
+
+*** Port
+Simply a number used by a particular software to identify its data
+coming from the internet
+
+*** Socket 
+IP Address + Port num. Used by another computer to send data to
+software on a particular machine 
++ IP = Machine 
++ Port = Software
+
+
+\break
+
+** Demultiplexing
+
++ Host receives IP datagrams
+  - Each datagram has source IP address, destination IP address
+  - Each datagram carries one transport-layer segment
++ Host uses IP address & port numbers to direct segment to appropriate
+  socket
+
+#+CAPTION: TCP/UDP segment format
+#+BEGIN_SRC artist 
+
+  <-----------32 bits--------->
+  +-------------+-------------+
+  | src port #  | dest port # |
+  |_____________|_____________|
+  |                           |
+  |     other header fields   |
+  |___________________________|
+  |                           |
+  |       application data    |   
+  |       payload             |
+  |___________________________|
+
+#+END_SRC
+
+*** Connectionless Dmuxing
+When host receives UDP segment:
++ checks destination port number in segment
++ directs UDP segment to socket with that port number
+
+IP datagrams with some destination port number, but different source IP
+and/or source port numbers will be directed to same socket at destination.
+
+*** Connection-oriented Dmux
+TCP socket identified by 4-tuple:
++ Source IP address
++ Source port number
++ Destination IP address
++ Dest port number
+
+Server host may support many simultaneous TCP sockets: each socket
+identified by its own 4-tuple.Web servers have different sockets for
+each connecting client, non persistent http will have different socket
+for each request
+
+** Connectionless Transport UDP
++ No handshaking between UDP, sender, receiver
++ each UDP segment handled independently of others
+
+UDP uses:
++ streaming multimedia apps (loss tolerant, rate sensitive)
++ DNS
++ best effort service
+
+UDP segments may be
++ lost
++ delivered out-of-order to app
+
+
+#+CAPTION: UDP segment format
+#+BEGIN_SRC artist 
+
+  <-----------32 bits--------->
+  +-------------+-------------+
+  | src port #  | dest port # |
+  |_____________|_____________|
+  | length      | checksum    |
+  |_____________|_____________|
+  |                           |
+  |     other header fields   |
+  |___________________________|
+  |                           |
+  |       application data    |   
+  |       payload             |
+  |___________________________|
+
+#+END_SRC
+
+*** Why UDP?
++ No connection establishment (which can add delay)
++ Simple: no connection state at sender, receiver
++ Small header size
++ No congestion control: UDP can blas away as fast as desired
+
+** Principles of Reliable Data Transfer
+
+#+CAPTION: Reliable Data Transfer (RDT)
+[[file:../img/RDT.png]]
+
+*** RDT: Getting Started
+
+Relies on four functions
+
+#+BEGIN_SRC
+
+rdt_send()
+
+deliver_data()
+
+udt_send()
+
+rdt_rcv()
+
+#+END_SRC
+
+
+*** Dependency between event & state
+
+#+CAPTION: Event -><- State dependency
+[[file:../img/eventStateDependency.png]]
+
+
+*** RDT 1.0
+Reliable data transfer over a reliable channel. Underlying channel is
+perfectly reliable
++ no bit errors
++ no loss of packets
+
+Seperate FSMs for sender, receiver:
++ sender sends data into underlying channel
++ receiver reads data from underlying channel
+
+*** RDT 2.0
+Channel with bit errors: underlying channel may flip bits in packet
++ checksum to detect bit
+
+*Question*: How to recover from errors?
+
++ Acknowledgements (ACKs): receiver explicitly tells sender that pkt
+  received OK
++ Negative acknowledgements (NAKs): receiver explicitly tells sender
+  that pkt had errors
++ Sender retransmits pkt on receipt of NAK
+
+*FATAL FLAW*
+ACK/NAK can be corrupted
++ sender doesn't know what happened at receiver
++ can't just retransmit possible duplicate
+
+Handling duplicates:
++ Sender retransmits current pkt if ACK/NAK corrupted
++ Sender adds sequence number to each pkt
++ Receiver discards (doesn't deliver up) ducplicate pkt
+
+Stop and wait:
++ sender sends one packet, then waits for receiver to respond
+
+*** RDT 2.1
+Sender:
++ Seq number added to pkt
++ Two sequence numbers (0,1) will suffice
++ Must check if ACK/NAK corrupted
++ Twice as many states
+  - states must "remember" whether "expected" pkt should have sequence
+    number of 0 or 1 
+
+Receiver: 
++ Must check if received packet is duplicate
+  - State indicates wheter 0 or 1 expected pkt sequence number
+
+Note: receiver can not(!) know if its last ACK/NAK received okay at
+sender 
+
+*** RDT 2.2: A NAK-free protocol
+
++Same functionality as *RDT 2.1*, using ACKs only 
++ Instead of NAK, receiver sends ACK for last pkt received OK
+  - receiver must explicitly include sequence number of packet being
+    ACKed
++ Duplicate ACK at sender results in same action as NAK: retransmit
+  current pkt
+
+*** RDT 3.0: Channels with errors and loss
+
+*New assumption*: underlying channel can also lose packets (data,
+ACKs)
++ checksum, sequence number, ACKs, retransmission will be of help
+  ... but not enough
+
+*Approach*: Sender waits reasonable amount of time for ACK
++ retransmits if no ACK received in this time
++ if pkt (or ACK) just delayed (not lost)
+  - retransmission will be duplicate, but sequence numbers already
+    handles this
+  - receiver must specific sequence number of pkt being ACK
++ Requires countdown timer
+
+
+
+#+BEGIN_SRC plantuml :file RDT3.0.png
+
+ sender -> receiver: pkt 0
+ note left
+    send pkt0
+ end note
+ note right 
+     rcv pkt 0
+     send ack 0
+ end note
+ receiver -> sender: ACK 0
+
+ sender -> receiver: pkt 1
+ note left
+    send ack 0
+    send pkt 1
+ end note
+ note right 
+     rcv pkt 1
+     send ack 1
+ end note
+ receiver -> sender: ACK 1
+
+ sender -> receiver: pkt 0
+ note left
+    send ack 1
+    send pkt 0
+ end note
+ note right 
+     rcv pkt 0
+     send ack 0
+ end note
+ receiver -> sender: ACK 0
+
+
+
+#+END_SRC
+
+#+RESULTS:
+[[file:../img/RDT3.0.png]]
+
+#+CAPTION:  
+
+
+
+** Pipelined Protocols
+*** Got-back-N
+*** Selective repeat
+
+** TCP 
+*** Overview
+*** TCP seq Number Acks
+*** Round Trip Time, Timeout
+*** Retransmission
+*** Flow Control
+*** Connection Management
+*** Principles of Congestion Control

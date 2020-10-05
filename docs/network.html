@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-09-17 Thu 10:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="adam" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgbc497c9">1. Computer Networks and the Internet</a>
+<ul>
+<li><a href="#org8e63030">1.1. Internet overview</a>
+<ul>
+<li><a href="#org619c2db">1.1.1. Devices</a></li>
+<li><a href="#org69a13a7">1.1.2. Communication Links</a></li>
+<li><a href="#org9131c88">1.1.3. Packet switches</a></li>
+</ul>
+</li>
+<li><a href="#orge00ab4c">1.2. Service view of the internet</a>
+<ul>
+<li><a href="#orgb1a2892">1.2.1. Provider of services to apps</a></li>
+<li><a href="#orgdeea976">1.2.2. Programming interface to apps</a></li>
+</ul>
+</li>
+<li><a href="#orga6a8d9a">1.3. Protocols</a>
+<ul>
+<li><a href="#org6701c47">1.3.1. Definition</a></li>
+<li><a href="#org69e289a">1.3.2. Required</a></li>
+</ul>
+</li>
+<li><a href="#org08f8a75">1.4. Network edge</a>
+<ul>
+<li><a href="#orgcb4558b">1.4.1. Access networks</a></li>
+<li><a href="#org6ce3e84">1.4.2. Physical media</a></li>
+</ul>
+</li>
+<li><a href="#org8c766a4">1.5. Network core</a>
+<ul>
+<li><a href="#orgda597dc">1.5.1. Interconnected routers</a></li>
+<li><a href="#orgfac653d">1.5.2. Delay, loss and throughput in Packet switched networks</a></li>
+<li><a href="#orga6b0cac">1.5.3. Queing, delay, loss</a></li>
+<li><a href="#orge02ca50">1.5.4. Sources of delay</a></li>
+<li><a href="#org2bafd46">1.5.5. Packet loss</a></li>
+</ul>
+</li>
+<li><a href="#orge7bfb5d">1.6. Protocol Layers</a>
+<ul>
+<li><a href="#orgd51e594">1.6.1. iso/osi Reference Model</a></li>
+</ul>
+</li>
+<li><a href="#org7d755e9">1.7. Network Security</a>
+<ul>
+<li><a href="#org8be1f3c">1.7.1. Malware</a></li>
+<li><a href="#org9eea98b">1.7.2. Packet "sniffing" &amp; IP Spoofing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9bbf04b">2. Application layer</a>
+<ul>
+<li><a href="#orga6fc70c">2.1. Web and HTTP</a>
+<ul>
+<li><a href="#org85366b6">2.1.1. Client-Server Architecture</a></li>
+<li><a href="#orgc88933c">2.1.2. Process Communicating</a></li>
+<li><a href="#orgd3eb6a6">2.1.3. Process</a></li>
+<li><a href="#org0a23e6a">2.1.4. Sockets</a></li>
+<li><a href="#org1811439">2.1.5. Protocols</a></li>
+</ul>
+</li>
+<li><a href="#org18536ca">2.2. FTP</a></li>
+<li><a href="#org3e32e2d">2.3. Electronic mail: SMTP, POP3, IMAP</a></li>
+<li><a href="#org579543d">2.4. DNS</a></li>
+<li><a href="#org658c8c0">2.5. Principles of network applications</a></li>
+<li><a href="#org6fdd6c4">2.6. P2P Apps</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbc497c9" class="outline-2">
+<h2 id="orgbc497c9"><span class="section-number-2">1</span> Computer Networks and the Internet</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org8e63030" class="outline-3">
+<h3 id="org8e63030"><span class="section-number-3">1.1</span> Internet overview</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org619c2db" class="outline-4">
+<h4 id="org619c2db"><span class="section-number-4">1.1.1</span> Devices</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li>host = end system, runs apps</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org69a13a7" class="outline-4">
+<h4 id="org69a13a7"><span class="section-number-4">1.1.2</span> Communication Links</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>fiber, copper, radio, satellite</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9131c88" class="outline-4">
+<h4 id="org9131c88"><span class="section-number-4">1.1.3</span> Packet switches</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li>routers and switches</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge00ab4c" class="outline-3">
+<h3 id="orge00ab4c"><span class="section-number-3">1.2</span> Service view of the internet</h3>
+<div class="outline-text-3" id="text-1-2">
+</div>
+<div id="outline-container-orgb1a2892" class="outline-4">
+<h4 id="orgb1a2892"><span class="section-number-4">1.2.1</span> Provider of services to apps</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<ul class="org-ul">
+<li>Web, VoIP, email, games, eCommerce, social net</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdeea976" class="outline-4">
+<h4 id="orgdeea976"><span class="section-number-4">1.2.2</span> Programming interface to apps</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<ul class="org-ul">
+<li>hooks</li>
+<li>service options (postal)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga6a8d9a" class="outline-3">
+<h3 id="orga6a8d9a"><span class="section-number-3">1.3</span> Protocols</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org6701c47" class="outline-4">
+<h4 id="org6701c47"><span class="section-number-4">1.3.1</span> Definition</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+A protocol defines the format and the order of messages exchanged
+between two or more communicating entitites, as well as the actions
+taken on the transmission and/or receipt of a message or other event.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org69e289a" class="outline-4">
+<h4 id="org69e289a"><span class="section-number-4">1.3.2</span> Required</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ul class="org-ul">
+<li>format</li>
+<li>order of messages</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org08f8a75" class="outline-3">
+<h3 id="org08f8a75"><span class="section-number-3">1.4</span> Network edge</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-orgcb4558b" class="outline-4">
+<h4 id="orgcb4558b"><span class="section-number-4">1.4.1</span> Access networks</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li>Wired, wireless comms links</li>
+</ul>
+<p>
+How does one connect an edge to a router?
+</p>
+
+<ul class="org-ul">
+<li>Frequency division multiplexing</li>
+<li>Cable network is shared</li>
+<li>HFC: hybrid fiber coax</li>
+<li>fiber homes -&gt; ISP router</li>
+<li>DSL</li>
+<li>Ethernet</li>
+
+<li>WLAN: IEEE<sub>802.11</sub></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6ce3e84" class="outline-4">
+<h4 id="org6ce3e84"><span class="section-number-4">1.4.2</span> Physical media</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<ul class="org-ul">
+<li>Guided (wires)</li>
+<li>Unguided (radio)</li>
+<li>Physical link (transmitter, {$x}, receiver)</li>
+<li>Bit (propagates between)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org8c766a4" class="outline-3">
+<h3 id="org8c766a4"><span class="section-number-3">1.5</span> Network core</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-orgda597dc" class="outline-4">
+<h4 id="orgda597dc"><span class="section-number-4">1.5.1</span> Interconnected routers</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<ul class="org-ul">
+<li>mesh of interconnected routing packets transmitted at full link
+capacity</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfac653d" class="outline-4">
+<h4 id="orgfac653d"><span class="section-number-4">1.5.2</span> Delay, loss and throughput in Packet switched networks</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<ul class="org-ul">
+<li>store and forward</li>
+</ul>
+
+
+<div class="org-src-container">
+<pre class="src src-artist">
+ Source     Router    Destination
+|       |____________|       |
+|_______|            |_______|
+
+   R_bps               R_bps
+</pre>
+</div>
+
+<p>
+L bits per packet
+</p>
+
+<ul class="org-ul">
+<li>End to end delay (assumes zero propagation delay) = 2L / R</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga6b0cac" class="outline-4">
+<h4 id="orga6b0cac"><span class="section-number-4">1.5.3</span> Queing, delay, loss</h4>
+<div class="outline-text-4" id="text-1-5-3">
+
+<div class="figure">
+<p><img src="my-diagram.png" alt="my-diagram.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge02ca50" class="outline-4">
+<h4 id="orge02ca50"><span class="section-number-4">1.5.4</span> Sources of delay</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<ul class="org-ul">
+<li>transmission</li>
+<li>nodal processing</li>
+<li>queuing</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./qDelay.png" alt="qDelay.png" />
+</p>
+</div>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">traffic intensity = L<sub>a</sub>/R</td>
+<td class="org-right">Avg. queuing delay</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-right">32</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-right">64</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-right">128</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-right">256</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-right">512</td>
+<td class="org-right">9</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+L<sub>a</sub>/R ~ 0 : avg. q delay small
+</p>
+
+<p>
+L<sub>a</sub>/R &lt;= 1 : avg. q delay large
+</p>
+
+<p>
+L<sub>a</sub>/R &gt; 1 : more work arriving than can be serviced average delay
+infinite
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2bafd46" class="outline-4">
+<h4 id="org2bafd46"><span class="section-number-4">1.5.5</span> Packet loss</h4>
+<div class="outline-text-4" id="text-1-5-5">
+<p>
+Buffer has finit capacity 
+</p>
+
+<p>
+packet &rarr; full queue = dropout
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge7bfb5d" class="outline-3">
+<h3 id="orge7bfb5d"><span class="section-number-3">1.6</span> Protocol Layers</h3>
+<div class="outline-text-3" id="text-1-6">
+
+<div class="figure">
+<p><img src="networklayers.png" alt="networklayers.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd51e594" class="outline-4">
+<h4 id="orgd51e594"><span class="section-number-4">1.6.1</span> iso/osi Reference Model</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<p>
+Encapsulation 
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-artist">
++-------------------+ A |   | A +-------------------+
+|               M   |---+   |---+                M  |
+|-------------------| T |   | T |-------------------|
+|           H_t M   |---+   |---+            H_t M  |
+|-------------------| N |   | N |-------------------|
+|       H_n H_t M   |---+   |---+        H_n H_t M  |
+|-------------------| L |   | L |-------------------|
+|    H_l H_n H_t M  |---+   |---+     H_l H_n H_t M |
+|-------------------| P |   | P |-------------------|
+
+</pre>
+</div>
+
+<p>
+Source &rarr;     Switch &rarr;      Router &rarr;     Destination 
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7d755e9" class="outline-3">
+<h3 id="org7d755e9"><span class="section-number-3">1.7</span> Network Security</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Internet was originally designed to be used be mutuall trusting users
+attached to a transparent network.
+</p>
+</div>
+
+<div id="outline-container-org8be1f3c" class="outline-4">
+<h4 id="org8be1f3c"><span class="section-number-4">1.7.1</span> Malware</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li><b>Virus</b>: self-replicating infection by receiving/executing object
+(email attachment)</li>
+<li><b>Worm</b>: self-replicating infection by passively receiving object
+that gets itself executed</li>
+<li><b>Spyware</b>: record keystrokes, web sites visited, upload info to</li>
+</ul>
+
+<p>
+Infected host can be enrolled in botnet, used for spam. DDOS attacks.
+</p>
+
+<ul class="org-ul">
+<li><b>DDOS attacks</b>: make resources unavailable to legitimate traffic by
+overwhelming with bogus traffic</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9eea98b" class="outline-4">
+<h4 id="org9eea98b"><span class="section-number-4">1.7.2</span> Packet "sniffing" &amp; IP Spoofing</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<ul class="org-ul">
+<li>Broadcast media</li>
+<li>Promiscuous network interface reads/records all packets passing by</li>
+<li>Send packet with false source address</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org9bbf04b" class="outline-2">
+<h2 id="org9bbf04b"><span class="section-number-2">2</span> Application layer</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orga6fc70c" class="outline-3">
+<h3 id="orga6fc70c"><span class="section-number-3">2.1</span> Web and HTTP</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org85366b6" class="outline-4">
+<h4 id="org85366b6"><span class="section-number-4">2.1.1</span> Client-Server Architecture</h4>
+<div class="outline-text-4" id="text-2-1-1">
+
+<div class="figure">
+<p><img src="clientserver.png" alt="clientserver.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>Client</b></th>
+<th scope="col" class="org-left"><b>Server</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Communicates with server</td>
+<td class="org-left">Always on host</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">May be intermittantly connected</td>
+<td class="org-left">Permanent IP</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">May have dynamic IP</td>
+<td class="org-left">Data centers for scaling</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Do not communicate directly with each other</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc88933c" class="outline-4">
+<h4 id="orgc88933c"><span class="section-number-4">2.1.2</span> Process Communicating</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Client process intiates comms, server process waits for contact
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3eb6a6" class="outline-4">
+<h4 id="orgd3eb6a6"><span class="section-number-4">2.1.3</span> Process</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<ul class="org-ul">
+<li>Running within a host</li>
+<li>Withing same host, two processes communicating using inter-process
+communiation (defined by OS)</li>
+<li>Processes in different hosts communicated by exchanging messages</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0a23e6a" class="outline-4">
+<h4 id="org0a23e6a"><span class="section-number-4">2.1.4</span> Sockets</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<div class="org-src-container">
+<pre class="src src-artist">
+    V                  ^
++---v-----+        +---^-----+  
+|_V_V_V_V_|        |_V_V_V_V_|
+
+</pre>
+</div>
+
+<p>
+<b>Addressing Processes</b>
+</p>
+<ul class="org-ul">
+<li>to receive messages, process must have ID</li>
+<li>IP = 32 bit</li>
+<li>identified = IP + Port</li>
+<li>HTTP server: 80</li>
+<li>Mail server: 25</li>
+</ul>
+
+<p>
+<b>Application Layer Protocol</b>
+</p>
+
+<p>
+Defines:
+</p>
+<ul class="org-ul">
+<li>dypes of messages exchanged (eg: request, response)</li>
+<li>msg syntax (fields and delineation)</li>
+<li>msg semantics</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1811439" class="outline-4">
+<h4 id="org1811439"><span class="section-number-4">2.1.5</span> Protocols</h4>
+<div class="outline-text-4" id="text-2-1-5">
+<p>
+Open protocols:
+</p>
+<ul class="org-ul">
+<li>defined in RFC</li>
+<li>allows for interoperatbility</li>
+<li>eg: http, smtp</li>
+</ul>
+
+<p>
+Proprietary protocols:
+</p>
+<ul class="org-ul">
+<li>eg. sype</li>
+</ul>
+
+<p>
+Transport service for an app
+</p>
+<ul class="org-ul">
+<li>100% reliable?</li>
+<li>can tolerate loss</li>
+<li>low latency</li>
+<li>multimedia, minimum throughput</li>
+<li>"elastic apps" whatever throughput</li>
+<li>encryption data integration</li>
+</ul>
+
+<p>
+Different apps need different architecture to accommodate all user
+requirements
+</p>
+
+<p>
+<b>TCP (Transmission Control Protocol)</b>
+</p>
+<ul class="org-ul">
+<li>Reliable transport send &rarr; receive</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org18536ca" class="outline-3">
+<h3 id="org18536ca"><span class="section-number-3">2.2</span> FTP</h3>
+</div>
+
+<div id="outline-container-org3e32e2d" class="outline-3">
+<h3 id="org3e32e2d"><span class="section-number-3">2.3</span> Electronic mail: SMTP, POP3, IMAP</h3>
+</div>
+
+<div id="outline-container-org579543d" class="outline-3">
+<h3 id="org579543d"><span class="section-number-3">2.4</span> DNS</h3>
+</div>
+
+<div id="outline-container-org658c8c0" class="outline-3">
+<h3 id="org658c8c0"><span class="section-number-3">2.5</span> Principles of network applications</h3>
+</div>
+
+<div id="outline-container-org6fdd6c4" class="outline-3">
+<h3 id="org6fdd6c4"><span class="section-number-3">2.6</span> P2P Apps</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: adam</p>
+<p class="date">Created: 2020-09-17 Thu 10:09</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
