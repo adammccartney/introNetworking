@@ -74,7 +74,7 @@ L bits per packet
 
 + End to end delay (assumes zero propagation delay) = 2L / R 
 
-*** Queing, delay, loss
+*** Queuing, delay, loss
 
 #+BEGIN_SRC plantuml :file my-diagram.png
 digraph foo {
@@ -117,7 +117,7 @@ L_a/R > 1 : more work arriving than can be serviced average delay
 infinite
 
 *** Packet loss
-Buffer has finit capacity 
+Buffer has finite capacity 
 
 packet \rightarrow full queue = dropout
 
@@ -187,7 +187,7 @@ Encapsulation
 
 ** Network Security
 
-Internet was originally designed to be used be mutuall trusting users
+Internet was originally designed to be used be mutual trusting users
 attached to a transparent network.
 
 *** Malware
@@ -229,19 +229,19 @@ Server -> Client
 |---------------------------------------------+--------------------------|
 | Communicates with server                    | Always on host           |
 |---------------------------------------------+--------------------------|
-| May be intermittantly connected             | Permanent IP             |
+| May be intermittently connected             | Permanent IP             |
 |---------------------------------------------+--------------------------|
 | May have dynamic IP                         | Data centers for scaling |
 |---------------------------------------------+--------------------------|
 | Do not communicate directly with each other |                          |
 
 *** Process Communicating
-Client process intiates comms, server process waits for contact
+Client process initiates comms, server process waits for contact
 
 *** Process 
 + Running within a host 
 + Withing same host, two processes communicating using inter-process
-  communiation (defined by OS)
+  communication (defined by OS)
 + Processes in different hosts communicated by exchanging messages 
 
 *** Sockets 
@@ -264,7 +264,7 @@ Client process intiates comms, server process waits for contact
 *Application Layer Protocol*
 
 Defines:
-+ dypes of messages exchanged (eg: request, response)
++ types of messages exchanged (eg: request, response)
 + msg syntax (fields and delineation)
 + msg semantics
 
@@ -272,11 +272,11 @@ Defines:
 
 Open protocols:
 + defined in RFC
-+ allows for interoperatbility
++ allows for interoperability
 + eg: http, smtp
 
 Proprietary protocols:
-+ eg. sype
++ eg. Skype
 
 Transport service for an app
 + 100% reliable?
@@ -296,7 +296,7 @@ requirements
 + Does not provide: timing, minimum throughput guarantee
 + Connection oriented: setup required between client & server process
 
-*UDP (User Datagram Protocol)*
+*UDP (User datagram Protocol)*
 + unreliable data transfer between sending and receiving
 + does not provide: reliability, flow control, congestion control,
   timing, throughput guarantee, security, or connection setup
@@ -358,20 +358,20 @@ Four components:
 1. Cookie header line of http response message
 2. cookie header line in next http request message
 3. cookie file kept on user's host, managed by browser
-4. backend database at website
+4. back-end database at website
 
 *uses*
 + authentication
 + shop cart
 + recommend
-+ user session state (webmail)
++ user session state (web-mail)
 
 *cookies and privacy*
 + permit site to learn about users 
 
 *** Web caches (proxy server)
 + acts as both client and server 
-+ typcially installed by ISP (uni, company, residential)
++ typically installed by ISP (uni, company, residential)
 + reduce response time
 + reduce traffic on access link
 
@@ -411,7 +411,7 @@ Three phases:
 *** IMAP
 + keeps messages in one place:server
 + allows user to organize messages in folders
-+ keeps user state accross sessions:
++ keeps user state across sessions:
    - names of folders and mappings between message IDs and folder name
 
 ** DNS
@@ -421,18 +421,18 @@ Domain Name System
 + Distributed database implemented in hierarchy of many name servers
 + application-layer protocol: hosts, name servers communicate to
   resolve names (address/name translation)
-    - Note: core interenet function implemented as application-layer
+    - Note: core Internet function implemented as application-layer
       protocol complexity at network's edge
 
 + *Root DNS Servers* over 400 worldwide (2016 numbers)
 + *Top-level domain (TLD) servers* for each of {com, org, ned, edu,
   gov, ie, at, jp, etc) there is a server or server cluster
-+ *Authoratative DNS servers* publicly accessible records that map the
-  names of the host companies to IP addreses
++ *Authoritative DNS servers* publicly accessible records that map the
+  names of the host companies to IP addresses
 
 
 *** DNS Services 
-+ Hostname to IP address translation
++ Host-name to IP address translation
 + host aliasing
   - canonical alias names
 + mail server aliasing
@@ -453,12 +453,12 @@ DNS: distributed db storing resource records (RR)
 RR Format: (name, value, type, ttl)
 
 *type=A*
-+ name is hostname
++ name is host-name
 + value is IP
 
 *type=NS*
 + name is domain
-+ value is hostname of authoratative name server for this domain
++ value is host-name of authoritative name server for this domain
 
 *type=CNAME*
 + name is alias for some "canonical" real name
@@ -474,7 +474,7 @@ RR Format: (name, value, type, ttl)
 
 *DDoS attacks*
 + Bombard servers with traffic
-  - Not succseful to date
+  - Not successful to date
   - traffic filtered
   - local DNS servers cache IPs of TLD servers, allowing root server
     bypass
@@ -525,13 +525,13 @@ DHT: a distributed P2P database
 
 
 * Transport Layer 
-
+  
 ** Transport Services & Protocols
 + Provide logical communication between app processes running on
   different hosts 
 + Transport protocols run in and systems
   - Send side: breaks app messages into segments, passes to network layer
-  - receiveer side: reassemble segments into messages, passes to app
+  - receiver side: reassemble segments into messages, passes to app
     layer
 + More than one transport protocol available to apps
   - Internet: TCP & UDP
@@ -580,7 +580,7 @@ software on a particular machine
 
 #+END_SRC
 
-*** Connectionless Dmuxing
+*** Connection-less Dmuxing
 When host receives UDP segment:
 + checks destination port number in segment
 + directs UDP segment to socket with that port number
@@ -600,7 +600,7 @@ identified by its own 4-tuple.Web servers have different sockets for
 each connecting client, non persistent http will have different socket
 for each request
 
-** Connectionless Transport UDP
+** Connection-less Transport UDP
 + No handshaking between UDP, sender, receiver
 + each UDP segment handled independently of others
 
@@ -637,7 +637,7 @@ UDP segments may be
 + No connection establishment (which can add delay)
 + Simple: no connection state at sender, receiver
 + Small header size
-+ No congestion control: UDP can blas away as fast as desired
++ No congestion control: UDP can blast away as fast as desired
 
 ** Principles of Reliable Data Transfer
 
@@ -673,9 +673,37 @@ perfectly reliable
 + no bit errors
 + no loss of packets
 
-Seperate FSMs for sender, receiver:
+Separate FSMs for sender, receiver:
 + sender sends data into underlying channel
 + receiver reads data from underlying channel
+
+*a. rdt1.0 sending side*
+
+#+BEGIN_SRC plantuml :file rdt1.0senderFSM.png
+
+scale 350 width
+
+[*] --> WaitForCallFromAbove
+WaitForCallFromAbove --> WaitForCallFromAbove : rdt_send(data) \n packet=make_pkt(data) \n udt_send(packet)
+
+#+END_SRC
+
+#+RESULTS:
+[[file:rdt1.0senderFSM.png]]
+
+*b. rdt1.0: receiving side*
+#+BEGIN_SRC plantuml :file rdt1.0receiverFSM.png
+
+scale 350 width
+
+[*] --> WaitForCallFromBelow
+WaitForCallFromBelow --> WaitForCallFromBelow : rdt_rcv(packet) \n extract(packet, data) \n devliver_data(data)
+
+#+END_SRC
+
+#+RESULTS:
+[[file:rdt1.0receiverFSM.png]]
+
 
 *** RDT 2.0
 Channel with bit errors: underlying channel may flip bits in packet
@@ -687,20 +715,55 @@ Channel with bit errors: underlying channel may flip bits in packet
   received OK
 + Negative acknowledgements (NAKs): receiver explicitly tells sender
   that pkt had errors
-+ Sender retransmits pkt on receipt of NAK
++ Sender re-transmits pkt on receipt of NAK
 
 *FATAL FLAW*
 ACK/NAK can be corrupted
 + sender doesn't know what happened at receiver
-+ can't just retransmit possible duplicate
++ can't just re-transmit possible duplicate
 
 Handling duplicates:
 + Sender retransmits current pkt if ACK/NAK corrupted
 + Sender adds sequence number to each pkt
-+ Receiver discards (doesn't deliver up) ducplicate pkt
++ Receiver discards (doesn't deliver up) duplicate pkt
 
 Stop and wait:
 + sender sends one packet, then waits for receiver to respond
+
+
+*a. rdt2.0 sending side*
+
+#+BEGIN_SRC plantuml :file rdt2.0senderFSM.png
+
+scale 550 width
+
+[*] --> WaitForCallFromAbove
+WaitForCallFromAbove --> WaitForACKorNAK : rdt_send(data) \n sndpkt=make_pkt(data,checksum) \n udt_send(sndpkt)
+WaitForACKorNAK --> WaitForACKorNAK : rdt_rcv(rcvpkt) && isNAK(rcvpkt) \n udt_send(sndpkt)
+WaitForACKorNAK --> WaitForCallFromAbove : rdt_rcv(rcvpkt) && isACK(rcvpkt) \n Λ
+
+#+END_SRC
+
+#+RESULTS:
+[[file:rdt2.0senderFSM.png]]
+
+*a. rdt2.0 receiving side*
+
+#+BEGIN_SRC plantuml :file rdt2.0receivingFSM.png
+
+scale 550 width
+
+[*] --> WaitForCallFromBelow
+WaitForCallFromBelow --> WaitForCallFromBelow : rdt_rcv(rcvpkt) && corrupt(rcvpkt) \n sndpkt=make_pkt(NAK) \n udt_send(sndpkt) 
+WaitForCallFromBelow --> WaitForCallFromBelow : rdt_rcv(rcvpkt) && notcorrupt(rcvpkt) \n extract(rcvpkt,data) \n deliver_data(data) \n sndpkt=make_pkt(ACK) \n udt_send(sndpkt)
+
+#+END_SRC
+
+#+RESULTS:
+[[file:rdt2.0receivingFSM.png]]
+
+
+
 
 *** RDT 2.1
 Sender:
@@ -713,7 +776,7 @@ Sender:
 
 Receiver: 
 + Must check if received packet is duplicate
-  - State indicates wheter 0 or 1 expected pkt sequence number
+  - State indicates whether 0 or 1 expected pkt sequence number
 
 Note: receiver can not(!) know if its last ACK/NAK received okay at
 sender 
@@ -724,20 +787,20 @@ sender
 + Instead of NAK, receiver sends ACK for last pkt received OK
   - receiver must explicitly include sequence number of packet being
     ACKed
-+ Duplicate ACK at sender results in same action as NAK: retransmit
++ Duplicate ACK at sender results in same action as NAK: re-transmit
   current pkt
 
 *** RDT 3.0: Channels with errors and loss
 
 *New assumption*: underlying channel can also lose packets (data,
 ACKs)
-+ checksum, sequence number, ACKs, retransmission will be of help
++ checksum, sequence number, ACKs, transmission will be of help
   ... but not enough
 
 *Approach*: Sender waits reasonable amount of time for ACK
 + retransmits if no ACK received in this time
 + if pkt (or ACK) just delayed (not lost)
-  - retransmission will be duplicate, but sequence numbers already
+  - re-transmission will be duplicate, but sequence numbers already
     handles this
   - receiver must specific sequence number of pkt being ACK
 + Requires countdown timer
@@ -790,14 +853,515 @@ ACKs)
 
 
 ** Pipelined Protocols
+
+[[file:../img/pipelined_protocols.png]]
+
 *** Got-back-N
++ Sender can have up to N unacked packets in a pipeline
++ Receiver only sends cumulative ack
+   - doesn't ack packet if there is a gap
++ Sender has a timer for oldest unacked packet
+   - when timer expires, re-transmit all unacked packets
+
+Packets also carry status tag, sending happens through a window
+
 *** Selective repeat
++ Sender can have up to N unacked packets in a pipeline
++ Receiver sends individual ack for each packet
++ Sender maintains timer for each packet
++ When timer expires, re-transmit only that unacked packet
+
+
+Individual acknowledgements happen on a per packet basis
 
 ** TCP 
 *** Overview
+
+A TCP "connection" is not an end-to-end switched circuit. It exists
+rather as a logical connection, where common state resides only in the
+TCPs in the two communicating end systems. None of the intermediate
+network or link layer elements retain any information about the
+connection and are in fact "oblivious" that even one exists.
+"Multicasting" is not possible as the connection needs to be point to
+point as a *full duplex service*.
+
++ RFCs: 737, 1122, 1323, 2018, 2581
++ Point to point (*connection-oriented*)
+   - one sender, one receiver
+
 *** TCP seq Number Acks
+Sequence numbers:
++ byte stream "number" of first byte in segment's data 
+
+Acknowledgements:
++ Seq number of next byte expected from other side
++ cumulative ACK
+
+#+BEGIN_SRC plantuml :file telnetEG.png
+
+note left
+    user 
+    types 
+    'c'
+end note
+HostA -> HostB: seq=42, ack=79, data='c' 
+note right
+    host ACKS 
+    receipt of 'c', 
+    echoes back 'c'
+end note
+HostB -> HostA
+note left 
+    host
+    acks 
+    receipt
+end note
+HostA -> HostB
+
+#+END_SRC
+
+#+RESULTS:
+[[file:telnetEG.png]]
+
+
+
 *** Round Trip Time, Timeout
-*** Retransmission
+*Q Set?*
++ longer than RTT
+  - RTT varies
++ too short: premature timeout, unnecessary transmission
++ too long: show reaction to segment loss
+
+*Estimate ?*
++ Sample RTT: measured time from segment transmission until ACK
+  receipt 
+    - ignore transmissions
++ sample RTT will vary, want RTT smoother
+    - average several recent measurements
+
+
+Estimated RTT = ( 1 - \alpha ) * EstmiatedRTT + \alpha * SampleRTT
+
+*** Re-transmission
+*Cumulative Acknowledgement* indicates that all packets with a sequence
+
+
+*TCP ACK Generation*
+
+|---------------------------+------------------------------------|
+| event receiver            | TCT receiver action                |
+|---------------------------+------------------------------------|
+| in order all up to        | delayed ACk, wait up to 500ms for  |
+| expected seq # acked      | for next segment, if none send ack |
+|---------------------------+------------------------------------|
+| arrived in order          | immediately send single            |
+| one other seq ack pending | cumulative ack, acking both        |
+|                           | in order segs                      |
+|---------------------------+------------------------------------|
+| out of order GAP detected | immediately send duplicate ACK     |
+|                           | with seq # of expected byte        |
+|---------------------------+------------------------------------|
+| missing segment arrives   | immediate ACK sent                 |
+|---------------------------+------------------------------------|
+
+
+*Fast Re-transmit*
+
+In the event of a lost segment in the course of a transfer, this can
+lead to a backlog of duplicate ACKs. In order to overcome this problem,
+if the sender receives three duplicates ACKs for a segment, it
+retransmits this particular segment using *fast re-transmit* before the
+segment's timer has expired.
+
+#+BEGIN_SRC
+
+event: ACK received, with ACK field value of y 
+        if(y > SendBase) {
+            sendBase = y
+            if(there are currently any not yet acknowledged segments)
+               start timer
+        }
+
+#+END_SRC
+
 *** Flow Control
++ Receiver controls sender, so sender won't overflow receiver's buffer
+  by sending too much, too fast
++ Receiver advertises window space into header of request ack
+
 *** Connection Management
++ TCP: 3 way handshakes
+
+#+BEGIN_SRC plantuml :file connectionManagement.png
+
+SenderListen --> Synsent --> Estab
+
+ReceiverListen --> SynRcvd --> Estab
+
+#+END_SRC
+
+#+RESULTS:
+[[file:connectionManagement.png]]
+
+
+#+BEGIN_SRC plantuml :file TCPclosing.png
+
+state clientState {
+Estab --> FinWait1 
+FinWait1 --> FinWait2
+FinWait2 --> TimedWait
+TimedWait --> Close
+}
+
+state serverState {
+Estab --> CloseWait
+CloseWait --> LastAck
+LastAck --> Close
+}
+
+#+END_SRC
+
+#+RESULTS:
+[[file:TCPclosing.png]]
+
 *** Principles of Congestion Control
+otherwise known as traffic ;-)
+
+Another cost of congestion: when packet dropped, any "upstream
+transmission capacity used for that packet was wasted!"
+
++ Additive increase multiplicative decrease (AIMD)
+  
+* Network Layer
+
+** Data Plane 
++ Transport segments from sending to receiving host
++ On send side encapsulates segments into datagrams
++ On receiving side, delivers segments to transport layer
++ Router examines header Fields in all IP datagrams passing through it
+
+*** Forwarding
++ *defn* Move packets from routers' input to appropriate router output
++ *analogy* planning a trip from source to destination
+
+*** Routing
++ *defn* determine route taken by packets from sources to destination
++ *analogy* getting through a single intersection 
+
+** Control Plane
+
+#+BEGIN_SRC artist
+
+               { routing algorithm } -> determines end to end 
+                                        path through network
+
+Control plane -> software-defined networking
+
+..............................................
+
+Data plane       local forwarding table
+             _______________________________
+              header value | output link 
+             --------------|--------------
+                   0100    | 3
+                   0101    | 2 
+                   0111    | 2 
+                   1001    | 1
+
+#+END_SRC
+
+
+** Network Services Model
+
+
+| Net Arch | Model       | Bandwidth  | Loss | Order | Timing | Congestion feeback     |
+|----------+-------------+------------+------+-------+--------+------------------------|
+| internet | best effort | none       | no   | no    | no     | no (inferred via loss) |
+|----------+-------------+------------+------+-------+--------+------------------------|
+| ATM      | CBR         | const rate | yes  | yes   | yes    | no congestion          |
+|----------+-------------+------------+------+-------+--------+------------------------|
+| ATM      | VBR         | const rate | yes  | yes   | yes    | no congestion          |
+|----------+-------------+------------+------+-------+--------+------------------------|
+| ATM      | ABR         | grntd. min | no   | yes   | no     | yes                    |
+|----------+-------------+------------+------+-------+--------+------------------------|
+| ATM      | UBR         | none       | no   | yes   | no     | no                     |
+|----------+-------------+------------+------+-------+--------+------------------------|
+
+
+*** Possible service provisions
++ guaranteed delivery: packet sent by host will eventually arrive at
+  destination host
++ guaranteed delivery with bounded delay: e.g. within 100msec
++ In-order packet delivery: guarantees that packets arrive at
+  destination in the order that they were sent
++ guaranteed 
+
+** Virtual circuit & datagram Network
++ Datagram network provides network-layer connectionless service
++ virtual-circuit network provides network-layer connection service
++ analogous to TCP/UDP connection-oriented/conectionless transport
+  layer services, but:
+  - Service: host-to-host
+  - No choice: network provides one or the other
+  - Implmentation: in network core
+
+*** Virtual circuits
++ "Source-to-destination path behaves much like telephone circuit"
+  - Performance-wise
+  - Network actions along source-to-dest path
++ Call setup, teardown for each call before data can flow
++ Each packet carries VC identifier (not destination host address)
++ Every router on source-dest path maintains "state" for each passing connection
++ Link, router resources (bandwidth, buffers) may be allocated to VC
+  (dedicated resources = predictable results)
+
+
+*** Datagram forwarding table
+
+
+| local forwarding table              |
+|------------------------+------------|
+|           header value | output lnk |
+|------------------------+------------|
+|                      1 |          4 |
+|                      2 |          2 |
+|                      3 |          2 |
+|                      4 |          1 |
+
+
++ 4 billion IP addresses so rather than list individual destination
+  addresses, list range of addresses (aggregate table entries)
+
+** Internet (datagram)
++ Data exchange amoung computers
+  - "Elastic" service, no strct timing requirements
++ Many link types 
+  - different characteristics
+  - uniform service difficult
++ "Smart" end systems (computers)
+  - can adapt, perform control, error recovery
+  - simple inside network, complexity at "edge" 
+
+** ATM (VC)
++ Evolved from telephony
++ Human conversation:
+  - Strict timing, reliability requirements
+  - Need for guaranteed service
++ "Dumb" end systems
+  - Telephones
+  - Complexity inside network
+
+
+** Router Architecture Overview
+
+[[file:../img/routerArchitecture.png]]
+
+Two key functions:
++ Forwarding datagrams from incoming to outgoing link
++ Run routing algorithms/protocol (RIP, OSPF, BGP)
+
+
+*** Input port functions
+
+[[file:../img/inputPortFunctions.png]]
+
+*** Head-of-the-line (HOC) blocking
+
+[[file:../img/hocBlocking.png]]
+
+*** Switching Fabric
+
+[[file:../img/switchingFabric.png]]
+
+*** Output Ports
+
+[[file:../img/outputPorts.png]]
+
+** IP Layer Protocol
+
+[[file:../img/ipLayerProtocol.png]]
+
+
+** IP Fragmentation, Reassembly
+
+Large IP datagram divided ("fragmented") within net
++ One datagram decomes several datagrams
++ Reassaembled only at final destination
++ IP header bits used to identify, order related fragments
+
+** IP Addressing
++ IP Address: 32 bit identifier for host, router interface
++ Interface: connection between host/router and physical link
+  - Routers typcially have multiple interfaces
+  - host typically has one or two interfaces (e.g. wired Ethernet,
+    wireless 802.11)
++ IP address associated with each interface
+
+** Subnets
+
+[[file:../img/subnetsIP.png]]
+
++ Subnet? 
+  - Device interfaces with same subnet port of IP address
+  - Can physically reach out to each other without intervening router
++ IP Address 
+  - Subnet port: high order bits
+  - host port: low order bits
+
+*** Bit distribution and max num Computers
+
+On the subnet: 23.1.1.0/24 the last 8 bits are used to ID the computer 
+
+2^8 = 256 
+0 => ID Network
+255 => ID Broadcast
+
+Max of 254 computers on a subnet
+
+*** CIDR (RFC 1918)
+Classless InterDomainRouting
++ Subnet portion of address of arbitrary length
++ Address format /a.b.c.d/c/ , where /x/ is the number of bits in
+  subnet portion of address 
+
+[[file:../img/cidr.png]]
+
+
+** How to get IP
+
+*** Host
++ can hard code via system files 
+  - windows: control-panel \rightarrow network \rightarrow
+    configuration \rightarrow tcp/ip \rightarrow properties
+  - unix: /etc/rc.config
+
++ Assigned by DHCP (Dynamic Host Configuration Protocol)
+  - "Plug & Play"
+
+DHCP can return more than just allocated IP address on subnet:
++ Address of first-hop router for client
++ name and IP address of DNS server
++ Network mask (indicating network versus host portion of address)
+
+
+*** Network
+Q. How does network get subnet part of IP address?
+
+A. Gets allocated portion of its provider's ISP address space
+
+Basically, the ISP's IP is chunked into a large enough block that
+anything being sent through the internet will be associated with a
+specific "IP address range", i.e. the whole 32 bits will note have to
+be constrantly re-read
+
+ISP receives block from 
+
+ICANN (icann.org)
++ allocated addresses
++ manages DNS
++ assignes domain names, resolves disputes
+
+** NAT: Network Address Translation
+
++ Problem: not enough IP addresses
++ Private internet addresses
+
+|-------+----------------|
+| class | block          |
+|-------+----------------|
+| A     | 10.0.0/8       |
+| B     | 172.16.0.0/12  |
+| C     | 192.168.0.9/16 |
+|-------+----------------|
+
+Basically, a router will map a pricate IP to a public one
+
+[[file:../img/routerIPMap.png]]
+
+Local network uses just one IP address as far as the outside world is
+concerned:
++ Range of addresses not needed from ISP just one IP address for all devices
++ Can change addresses of devices in local network without notifying
+  outside world
++ can change ISP without changing addresses of devices in local network
++ Devices inside local net not explicitly addressable, visible by
+  outside world (a security plus)
+
+** Routing Algorithms 
++ Algorithm responsible for maintaining the path that the datagram
+  travels through the network
++ Forwarding takes packet coming into incoming port, processes it,
+  does the lookup on the destination and forwards it to the router
+
+*** Graph Abstraction
+
+[[file:../img/graphAbstraction.png]]
+
++ C( x, x^1 ) = const of link ( x, x^1 ) e.g.: c( w, z ) = 5
++ cost could always be 1, or inversely related to bandwidth, or
+  inversely related to congestion
++ Cost of path ( x_1 , x_2 , ... , x_p ) = c( x_1 , x_2 ) + c( x_2 ,
+  x_3 ) + ... + c( x_p-1 , x_p )
+
++ Key question: what is the least-cost path between u and z?
+
++ Routing algorithm: algorithm that finds that least cost path
+
+*** Routing Algorithm Classification 
+Global or decentralized information?
+
+*Global:*
++ All routers have complete topology, link cost info
++ "Link state" algorithms
+
+*Decentralized*
++ Router knows physically-connected neighbors, link cost to neighbors
++ Iterative process of computation, exchange of info with neighbors
++ "Distance vector" algorithms
+
+*Q.* /Static or Dynamic?/
+
+*Static*
++ Routes change slowly over time
+
+*Dynamic*
++ Routes change more quickly
+  - Periodic update in response to link cost changes
+  - Global
+  - Decentralized
+  - Static
+  - Dynamic
+
+*** Link State: Dijkstra's Algorithm
+
+[[file:../img/dijkstraAlg.png]]
+
+|      |        | D(v)  | D(w)  | D(x)  | D(y)    | D(z)    |
+| Step | N'     | p(v)  | p(w)  | p(x)  | p(y)    | p(z)    |
+|------+--------+-------+-------+-------+---------+---------|
+|    0 | u      | 7,u   | *3,u* | 5,u   | \bowtie | \bowtie |
+|    1 | uw     | 6,w   |       | *5,u* | 11,w    |         |
+|    2 | uwx    | *6,w* |       |       | 11,w    | 14,x    |
+|    3 | uwxz   |       |       |       | *10,v*  | 14,x    |
+|    4 | uwxvy  |       |       |       |         | *12,y*  |
+|    5 | uwxvyz |       |       |       |         |         |
+|------+--------+-------+-------+-------+---------+---------|
+
+*Notes*
++ Construct shortest path by tracing predecessor nodes
++ Ties can exist (can be broken arbitrarily)
+
+*Resuslting shortest-path tree from u:*
+[[file:../img/resultShortPath.png]]
+
+Resulting forwarding table in u:
+
+| destination | link  |
+|-------------+-------|
+| v           | (u.v) |
+| x           | (u.x) |
+| y           | (u.x) |
+| w           | (u.x) |
+| z           | (u.x) |
+
+

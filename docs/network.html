@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-17 Thu 10:09 -->
+<!-- 2020-10-15 Thu 12:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -239,6 +239,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -246,86 +268,181 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbc497c9">1. Computer Networks and the Internet</a>
+<li><a href="#org71f5822">1. Computer Networks and the Internet</a>
 <ul>
-<li><a href="#org8e63030">1.1. Internet overview</a>
+<li><a href="#org7dc16f2">1.1. Internet overview</a>
 <ul>
-<li><a href="#org619c2db">1.1.1. Devices</a></li>
-<li><a href="#org69a13a7">1.1.2. Communication Links</a></li>
-<li><a href="#org9131c88">1.1.3. Packet switches</a></li>
+<li><a href="#org959116e">1.1.1. Devices</a></li>
+<li><a href="#org67eed07">1.1.2. Communication Links</a></li>
+<li><a href="#org9ca8bda">1.1.3. Packet switches</a></li>
 </ul>
 </li>
-<li><a href="#orge00ab4c">1.2. Service view of the internet</a>
+<li><a href="#org312d7a3">1.2. Service view of the internet</a>
 <ul>
-<li><a href="#orgb1a2892">1.2.1. Provider of services to apps</a></li>
-<li><a href="#orgdeea976">1.2.2. Programming interface to apps</a></li>
+<li><a href="#org04c6f10">1.2.1. Provider of services to apps</a></li>
+<li><a href="#org459c413">1.2.2. Programming interface to apps</a></li>
 </ul>
 </li>
-<li><a href="#orga6a8d9a">1.3. Protocols</a>
+<li><a href="#org66780b6">1.3. Protocols</a>
 <ul>
-<li><a href="#org6701c47">1.3.1. Definition</a></li>
-<li><a href="#org69e289a">1.3.2. Required</a></li>
+<li><a href="#org87fb8cc">1.3.1. Definition</a></li>
+<li><a href="#org23c985d">1.3.2. Required</a></li>
 </ul>
 </li>
-<li><a href="#org08f8a75">1.4. Network edge</a>
+<li><a href="#org5680544">1.4. Network edge</a>
 <ul>
-<li><a href="#orgcb4558b">1.4.1. Access networks</a></li>
-<li><a href="#org6ce3e84">1.4.2. Physical media</a></li>
+<li><a href="#orgf7b6174">1.4.1. Access networks</a></li>
+<li><a href="#orgd2b96cf">1.4.2. Physical media</a></li>
 </ul>
 </li>
-<li><a href="#org8c766a4">1.5. Network core</a>
+<li><a href="#org34905d5">1.5. Network core</a>
 <ul>
-<li><a href="#orgda597dc">1.5.1. Interconnected routers</a></li>
-<li><a href="#orgfac653d">1.5.2. Delay, loss and throughput in Packet switched networks</a></li>
-<li><a href="#orga6b0cac">1.5.3. Queing, delay, loss</a></li>
-<li><a href="#orge02ca50">1.5.4. Sources of delay</a></li>
-<li><a href="#org2bafd46">1.5.5. Packet loss</a></li>
+<li><a href="#org0fb4ca1">1.5.1. Interconnected routers</a></li>
+<li><a href="#org0a8cfae">1.5.2. Delay, loss and throughput in Packet switched networks</a></li>
+<li><a href="#orga1d8c4b">1.5.3. Queuing, delay, loss</a></li>
+<li><a href="#org196faf2">1.5.4. Sources of delay</a></li>
+<li><a href="#orgb1c1be1">1.5.5. Packet loss</a></li>
 </ul>
 </li>
-<li><a href="#orge7bfb5d">1.6. Protocol Layers</a>
+<li><a href="#org9eeba80">1.6. Protocol Layers</a>
 <ul>
-<li><a href="#orgd51e594">1.6.1. iso/osi Reference Model</a></li>
+<li><a href="#org1981bcb">1.6.1. iso/osi Reference Model</a></li>
 </ul>
 </li>
-<li><a href="#org7d755e9">1.7. Network Security</a>
+<li><a href="#orgd77cddc">1.7. Network Security</a>
 <ul>
-<li><a href="#org8be1f3c">1.7.1. Malware</a></li>
-<li><a href="#org9eea98b">1.7.2. Packet "sniffing" &amp; IP Spoofing</a></li>
+<li><a href="#orga057f35">1.7.1. Malware</a></li>
+<li><a href="#org786e969">1.7.2. Packet "sniffing" &amp; IP Spoofing</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org9bbf04b">2. Application layer</a>
+<li><a href="#org8225c91">2. Application layer</a>
 <ul>
-<li><a href="#orga6fc70c">2.1. Web and HTTP</a>
+<li><a href="#orgb88d188">2.1. Web and HTTP</a>
 <ul>
-<li><a href="#org85366b6">2.1.1. Client-Server Architecture</a></li>
-<li><a href="#orgc88933c">2.1.2. Process Communicating</a></li>
-<li><a href="#orgd3eb6a6">2.1.3. Process</a></li>
-<li><a href="#org0a23e6a">2.1.4. Sockets</a></li>
-<li><a href="#org1811439">2.1.5. Protocols</a></li>
+<li><a href="#org1e61908">2.1.1. Client-Server Architecture</a></li>
+<li><a href="#org4f51927">2.1.2. Process Communicating</a></li>
+<li><a href="#orgf3090db">2.1.3. Process</a></li>
+<li><a href="#org607bfa2">2.1.4. Sockets</a></li>
+<li><a href="#org8dfb401">2.1.5. Protocols</a></li>
+<li><a href="#org23ae0cc">2.1.6. HTTP</a></li>
+<li><a href="#orge14310d">2.1.7. User-server state: Cookies</a></li>
+<li><a href="#orgfa1e992">2.1.8. Web caches (proxy server)</a></li>
+<li><a href="#org947f48e">2.1.9. conditional GET</a></li>
 </ul>
 </li>
-<li><a href="#org18536ca">2.2. FTP</a></li>
-<li><a href="#org3e32e2d">2.3. Electronic mail: SMTP, POP3, IMAP</a></li>
-<li><a href="#org579543d">2.4. DNS</a></li>
-<li><a href="#org658c8c0">2.5. Principles of network applications</a></li>
-<li><a href="#org6fdd6c4">2.6. P2P Apps</a></li>
+<li><a href="#org5dd0d29">2.2. FTP</a></li>
+<li><a href="#org8a833b8">2.3. Electronic mail: SMTP, POP3, IMAP</a>
+<ul>
+<li><a href="#org61f5903">2.3.1. POP3</a></li>
+<li><a href="#org4518ee4">2.3.2. IMAP</a></li>
+</ul>
+</li>
+<li><a href="#org286a20a">2.4. DNS</a>
+<ul>
+<li><a href="#orgb2e06eb">2.4.1. DNS Services</a></li>
+<li><a href="#orgfda821a">2.4.2. DNS Records</a></li>
+<li><a href="#org1c521a7">2.4.3. Attacking DNS</a></li>
+</ul>
+</li>
+<li><a href="#orgdebe8e0">2.5. Principles of network applications</a>
+<ul>
+<li><a href="#org7c89510">2.5.1. Server/client</a></li>
+<li><a href="#orgd6b1cb4">2.5.2. P2P</a></li>
+</ul>
+</li>
+<li><a href="#org96a59ff">2.6. P2P Apps</a></li>
+</ul>
+</li>
+<li><a href="#org27e406e">3. Transport Layer</a>
+<ul>
+<li><a href="#org2b591d6">3.1. Transport Services &amp; Protocols</a></li>
+<li><a href="#org72aee4c">3.2. Multiplexing and Demultiplexing</a>
+<ul>
+<li><a href="#org9315bfc">3.2.1. Port</a></li>
+<li><a href="#orga6184ea">3.2.2. Socket</a></li>
+</ul>
+</li>
+<li><a href="#org2f13e58">3.3. Demultiplexing</a>
+<ul>
+<li><a href="#org789bf6f">3.3.1. Connection-less Dmuxing</a></li>
+<li><a href="#org89c020d">3.3.2. Connection-oriented Dmux</a></li>
+</ul>
+</li>
+<li><a href="#orgf5277bd">3.4. Connection-less Transport UDP</a>
+<ul>
+<li><a href="#org5be7052">3.4.1. Why UDP?</a></li>
+</ul>
+</li>
+<li><a href="#orgb8cb0cc">3.5. Principles of Reliable Data Transfer</a>
+<ul>
+<li><a href="#org45d0335">3.5.1. RDT: Getting Started</a></li>
+<li><a href="#org53026c7">3.5.2. Dependency between event &amp; state</a></li>
+<li><a href="#orga420972">3.5.3. RDT 1.0</a></li>
+<li><a href="#org8db6d14">3.5.4. RDT 2.0</a></li>
+<li><a href="#org2940ead">3.5.5. RDT 2.1</a></li>
+<li><a href="#org3a59a0f">3.5.6. RDT 2.2: A NAK-free protocol</a></li>
+<li><a href="#org30e3700">3.5.7. RDT 3.0: Channels with errors and loss</a></li>
+</ul>
+</li>
+<li><a href="#org260e011">3.6. Pipelined Protocols</a>
+<ul>
+<li><a href="#orgac4220d">3.6.1. Got-back-N</a></li>
+<li><a href="#org3148dd2">3.6.2. Selective repeat</a></li>
+</ul>
+</li>
+<li><a href="#org15d4989">3.7. TCP</a>
+<ul>
+<li><a href="#org4b8d0e9">3.7.1. Overview</a></li>
+<li><a href="#org7cd5eb0">3.7.2. TCP seq Number Acks</a></li>
+<li><a href="#org877a2e2">3.7.3. Round Trip Time, Timeout</a></li>
+<li><a href="#orge817b01">3.7.4. Re-transmission</a></li>
+<li><a href="#org6421296">3.7.5. Flow Control</a></li>
+<li><a href="#org447ef33">3.7.6. Connection Management</a></li>
+<li><a href="#org190e7cf">3.7.7. Principles of Congestion Control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org612c72c">4. Network Layer</a>
+<ul>
+<li><a href="#org195de97">4.1. Data Plane</a>
+<ul>
+<li><a href="#orgda0669c">4.1.1. Forwarding</a></li>
+<li><a href="#orga4d8bd5">4.1.2. Routing</a></li>
+</ul>
+</li>
+<li><a href="#org6f5a332">4.2. Control Plane</a></li>
+<li><a href="#orgcf7216d">4.3. Network Services Model</a>
+<ul>
+<li><a href="#org7331d20">4.3.1. Possible service provisions</a></li>
+</ul>
+</li>
+<li><a href="#org27094f1">4.4. Virtual circuit &amp; datagram Network</a>
+<ul>
+<li><a href="#org75506e8">4.4.1. Virtual circuits</a></li>
+<li><a href="#orga90ef0a">4.4.2. Datagram forwarding table</a></li>
+</ul>
+</li>
+<li><a href="#org94ec6ad">4.5. Internet (datagram)</a></li>
+<li><a href="#org1c7b0eb">4.6. ATM (VC)</a></li>
+<li><a href="#org9cee167">4.7. Router Architecture Overview</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbc497c9" class="outline-2">
-<h2 id="orgbc497c9"><span class="section-number-2">1</span> Computer Networks and the Internet</h2>
+<div id="outline-container-org71f5822" class="outline-2">
+<h2 id="org71f5822"><span class="section-number-2">1</span> Computer Networks and the Internet</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org8e63030" class="outline-3">
-<h3 id="org8e63030"><span class="section-number-3">1.1</span> Internet overview</h3>
+<div id="outline-container-org7dc16f2" class="outline-3">
+<h3 id="org7dc16f2"><span class="section-number-3">1.1</span> Internet overview</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org619c2db" class="outline-4">
-<h4 id="org619c2db"><span class="section-number-4">1.1.1</span> Devices</h4>
+<div id="outline-container-org959116e" class="outline-4">
+<h4 id="org959116e"><span class="section-number-4">1.1.1</span> Devices</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
 <li>host = end system, runs apps</li>
@@ -333,8 +450,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org69a13a7" class="outline-4">
-<h4 id="org69a13a7"><span class="section-number-4">1.1.2</span> Communication Links</h4>
+<div id="outline-container-org67eed07" class="outline-4">
+<h4 id="org67eed07"><span class="section-number-4">1.1.2</span> Communication Links</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <ul class="org-ul">
 <li>fiber, copper, radio, satellite</li>
@@ -342,8 +459,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org9131c88" class="outline-4">
-<h4 id="org9131c88"><span class="section-number-4">1.1.3</span> Packet switches</h4>
+<div id="outline-container-org9ca8bda" class="outline-4">
+<h4 id="org9ca8bda"><span class="section-number-4">1.1.3</span> Packet switches</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <ul class="org-ul">
 <li>routers and switches</li>
@@ -352,12 +469,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orge00ab4c" class="outline-3">
-<h3 id="orge00ab4c"><span class="section-number-3">1.2</span> Service view of the internet</h3>
+<div id="outline-container-org312d7a3" class="outline-3">
+<h3 id="org312d7a3"><span class="section-number-3">1.2</span> Service view of the internet</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orgb1a2892" class="outline-4">
-<h4 id="orgb1a2892"><span class="section-number-4">1.2.1</span> Provider of services to apps</h4>
+<div id="outline-container-org04c6f10" class="outline-4">
+<h4 id="org04c6f10"><span class="section-number-4">1.2.1</span> Provider of services to apps</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
 <li>Web, VoIP, email, games, eCommerce, social net</li>
@@ -365,8 +482,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgdeea976" class="outline-4">
-<h4 id="orgdeea976"><span class="section-number-4">1.2.2</span> Programming interface to apps</h4>
+<div id="outline-container-org459c413" class="outline-4">
+<h4 id="org459c413"><span class="section-number-4">1.2.2</span> Programming interface to apps</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <ul class="org-ul">
 <li>hooks</li>
@@ -377,12 +494,12 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orga6a8d9a" class="outline-3">
-<h3 id="orga6a8d9a"><span class="section-number-3">1.3</span> Protocols</h3>
+<div id="outline-container-org66780b6" class="outline-3">
+<h3 id="org66780b6"><span class="section-number-3">1.3</span> Protocols</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org6701c47" class="outline-4">
-<h4 id="org6701c47"><span class="section-number-4">1.3.1</span> Definition</h4>
+<div id="outline-container-org87fb8cc" class="outline-4">
+<h4 id="org87fb8cc"><span class="section-number-4">1.3.1</span> Definition</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <p>
 A protocol defines the format and the order of messages exchanged
@@ -392,8 +509,8 @@ taken on the transmission and/or receipt of a message or other event.
 </div>
 </div>
 
-<div id="outline-container-org69e289a" class="outline-4">
-<h4 id="org69e289a"><span class="section-number-4">1.3.2</span> Required</h4>
+<div id="outline-container-org23c985d" class="outline-4">
+<h4 id="org23c985d"><span class="section-number-4">1.3.2</span> Required</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <ul class="org-ul">
 <li>format</li>
@@ -403,12 +520,12 @@ taken on the transmission and/or receipt of a message or other event.
 </div>
 </div>
 
-<div id="outline-container-org08f8a75" class="outline-3">
-<h3 id="org08f8a75"><span class="section-number-3">1.4</span> Network edge</h3>
+<div id="outline-container-org5680544" class="outline-3">
+<h3 id="org5680544"><span class="section-number-3">1.4</span> Network edge</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-orgcb4558b" class="outline-4">
-<h4 id="orgcb4558b"><span class="section-number-4">1.4.1</span> Access networks</h4>
+<div id="outline-container-orgf7b6174" class="outline-4">
+<h4 id="orgf7b6174"><span class="section-number-4">1.4.1</span> Access networks</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <ul class="org-ul">
 <li>Wired, wireless comms links</li>
@@ -430,8 +547,8 @@ How does one connect an edge to a router?
 </div>
 </div>
 
-<div id="outline-container-org6ce3e84" class="outline-4">
-<h4 id="org6ce3e84"><span class="section-number-4">1.4.2</span> Physical media</h4>
+<div id="outline-container-orgd2b96cf" class="outline-4">
+<h4 id="orgd2b96cf"><span class="section-number-4">1.4.2</span> Physical media</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <ul class="org-ul">
 <li>Guided (wires)</li>
@@ -444,12 +561,12 @@ How does one connect an edge to a router?
 </div>
 
 
-<div id="outline-container-org8c766a4" class="outline-3">
-<h3 id="org8c766a4"><span class="section-number-3">1.5</span> Network core</h3>
+<div id="outline-container-org34905d5" class="outline-3">
+<h3 id="org34905d5"><span class="section-number-3">1.5</span> Network core</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-orgda597dc" class="outline-4">
-<h4 id="orgda597dc"><span class="section-number-4">1.5.1</span> Interconnected routers</h4>
+<div id="outline-container-org0fb4ca1" class="outline-4">
+<h4 id="org0fb4ca1"><span class="section-number-4">1.5.1</span> Interconnected routers</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <ul class="org-ul">
 <li>mesh of interconnected routing packets transmitted at full link
@@ -458,8 +575,8 @@ capacity</li>
 </div>
 </div>
 
-<div id="outline-container-orgfac653d" class="outline-4">
-<h4 id="orgfac653d"><span class="section-number-4">1.5.2</span> Delay, loss and throughput in Packet switched networks</h4>
+<div id="outline-container-org0a8cfae" class="outline-4">
+<h4 id="org0a8cfae"><span class="section-number-4">1.5.2</span> Delay, loss and throughput in Packet switched networks</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <ul class="org-ul">
 <li>store and forward</li>
@@ -486,8 +603,8 @@ L bits per packet
 </div>
 </div>
 
-<div id="outline-container-orga6b0cac" class="outline-4">
-<h4 id="orga6b0cac"><span class="section-number-4">1.5.3</span> Queing, delay, loss</h4>
+<div id="outline-container-orga1d8c4b" class="outline-4">
+<h4 id="orga1d8c4b"><span class="section-number-4">1.5.3</span> Queuing, delay, loss</h4>
 <div class="outline-text-4" id="text-1-5-3">
 
 <div class="figure">
@@ -497,8 +614,8 @@ L bits per packet
 </div>
 </div>
 
-<div id="outline-container-orge02ca50" class="outline-4">
-<h4 id="orge02ca50"><span class="section-number-4">1.5.4</span> Sources of delay</h4>
+<div id="outline-container-org196faf2" class="outline-4">
+<h4 id="org196faf2"><span class="section-number-4">1.5.4</span> Sources of delay</h4>
 <div class="outline-text-4" id="text-1-5-4">
 <ul class="org-ul">
 <li>transmission</li>
@@ -508,9 +625,10 @@ L bits per packet
 
 
 <div class="figure">
-<p><img src="./qDelay.png" alt="qDelay.png" />
+<p><img src="../img/qDelay.png" alt="qDelay.png" />
 </p>
 </div>
+
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -593,11 +711,11 @@ infinite
 </div>
 </div>
 
-<div id="outline-container-org2bafd46" class="outline-4">
-<h4 id="org2bafd46"><span class="section-number-4">1.5.5</span> Packet loss</h4>
+<div id="outline-container-orgb1c1be1" class="outline-4">
+<h4 id="orgb1c1be1"><span class="section-number-4">1.5.5</span> Packet loss</h4>
 <div class="outline-text-4" id="text-1-5-5">
 <p>
-Buffer has finit capacity 
+Buffer has finite capacity 
 </p>
 
 <p>
@@ -608,8 +726,8 @@ packet &rarr; full queue = dropout
 </div>
 
 
-<div id="outline-container-orge7bfb5d" class="outline-3">
-<h3 id="orge7bfb5d"><span class="section-number-3">1.6</span> Protocol Layers</h3>
+<div id="outline-container-org9eeba80" class="outline-3">
+<h3 id="org9eeba80"><span class="section-number-3">1.6</span> Protocol Layers</h3>
 <div class="outline-text-3" id="text-1-6">
 
 <div class="figure">
@@ -618,8 +736,8 @@ packet &rarr; full queue = dropout
 </div>
 </div>
 
-<div id="outline-container-orgd51e594" class="outline-4">
-<h4 id="orgd51e594"><span class="section-number-4">1.6.1</span> iso/osi Reference Model</h4>
+<div id="outline-container-org1981bcb" class="outline-4">
+<h4 id="org1981bcb"><span class="section-number-4">1.6.1</span> iso/osi Reference Model</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 Encapsulation 
@@ -649,17 +767,17 @@ Source &rarr;     Switch &rarr;      Router &rarr;     Destination
 </div>
 
 
-<div id="outline-container-org7d755e9" class="outline-3">
-<h3 id="org7d755e9"><span class="section-number-3">1.7</span> Network Security</h3>
+<div id="outline-container-orgd77cddc" class="outline-3">
+<h3 id="orgd77cddc"><span class="section-number-3">1.7</span> Network Security</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
-Internet was originally designed to be used be mutuall trusting users
+Internet was originally designed to be used be mutual trusting users
 attached to a transparent network.
 </p>
 </div>
 
-<div id="outline-container-org8be1f3c" class="outline-4">
-<h4 id="org8be1f3c"><span class="section-number-4">1.7.1</span> Malware</h4>
+<div id="outline-container-orga057f35" class="outline-4">
+<h4 id="orga057f35"><span class="section-number-4">1.7.1</span> Malware</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <ul class="org-ul">
 <li><b>Virus</b>: self-replicating infection by receiving/executing object
@@ -680,8 +798,8 @@ overwhelming with bogus traffic</li>
 </div>
 </div>
 
-<div id="outline-container-org9eea98b" class="outline-4">
-<h4 id="org9eea98b"><span class="section-number-4">1.7.2</span> Packet "sniffing" &amp; IP Spoofing</h4>
+<div id="outline-container-org786e969" class="outline-4">
+<h4 id="org786e969"><span class="section-number-4">1.7.2</span> Packet "sniffing" &amp; IP Spoofing</h4>
 <div class="outline-text-4" id="text-1-7-2">
 <ul class="org-ul">
 <li>Broadcast media</li>
@@ -696,16 +814,16 @@ overwhelming with bogus traffic</li>
 
 
 
-<div id="outline-container-org9bbf04b" class="outline-2">
-<h2 id="org9bbf04b"><span class="section-number-2">2</span> Application layer</h2>
+<div id="outline-container-org8225c91" class="outline-2">
+<h2 id="org8225c91"><span class="section-number-2">2</span> Application layer</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orga6fc70c" class="outline-3">
-<h3 id="orga6fc70c"><span class="section-number-3">2.1</span> Web and HTTP</h3>
+<div id="outline-container-orgb88d188" class="outline-3">
+<h3 id="orgb88d188"><span class="section-number-3">2.1</span> Web and HTTP</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org85366b6" class="outline-4">
-<h4 id="org85366b6"><span class="section-number-4">2.1.1</span> Client-Server Architecture</h4>
+<div id="outline-container-org1e61908" class="outline-4">
+<h4 id="org1e61908"><span class="section-number-4">2.1.1</span> Client-Server Architecture</h4>
 <div class="outline-text-4" id="text-2-1-1">
 
 <div class="figure">
@@ -735,7 +853,7 @@ overwhelming with bogus traffic</li>
 </tbody>
 <tbody>
 <tr>
-<td class="org-left">May be intermittantly connected</td>
+<td class="org-left">May be intermittently connected</td>
 <td class="org-left">Permanent IP</td>
 </tr>
 </tbody>
@@ -755,29 +873,29 @@ overwhelming with bogus traffic</li>
 </div>
 </div>
 
-<div id="outline-container-orgc88933c" class="outline-4">
-<h4 id="orgc88933c"><span class="section-number-4">2.1.2</span> Process Communicating</h4>
+<div id="outline-container-org4f51927" class="outline-4">
+<h4 id="org4f51927"><span class="section-number-4">2.1.2</span> Process Communicating</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <p>
-Client process intiates comms, server process waits for contact
+Client process initiates comms, server process waits for contact
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd3eb6a6" class="outline-4">
-<h4 id="orgd3eb6a6"><span class="section-number-4">2.1.3</span> Process</h4>
+<div id="outline-container-orgf3090db" class="outline-4">
+<h4 id="orgf3090db"><span class="section-number-4">2.1.3</span> Process</h4>
 <div class="outline-text-4" id="text-2-1-3">
 <ul class="org-ul">
 <li>Running within a host</li>
 <li>Withing same host, two processes communicating using inter-process
-communiation (defined by OS)</li>
+communication (defined by OS)</li>
 <li>Processes in different hosts communicated by exchanging messages</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0a23e6a" class="outline-4">
-<h4 id="org0a23e6a"><span class="section-number-4">2.1.4</span> Sockets</h4>
+<div id="outline-container-org607bfa2" class="outline-4">
+<h4 id="org607bfa2"><span class="section-number-4">2.1.4</span> Sockets</h4>
 <div class="outline-text-4" id="text-2-1-4">
 <div class="org-src-container">
 <pre class="src src-artist">
@@ -807,22 +925,22 @@ communiation (defined by OS)</li>
 Defines:
 </p>
 <ul class="org-ul">
-<li>dypes of messages exchanged (eg: request, response)</li>
+<li>types of messages exchanged (eg: request, response)</li>
 <li>msg syntax (fields and delineation)</li>
 <li>msg semantics</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1811439" class="outline-4">
-<h4 id="org1811439"><span class="section-number-4">2.1.5</span> Protocols</h4>
+<div id="outline-container-org8dfb401" class="outline-4">
+<h4 id="org8dfb401"><span class="section-number-4">2.1.5</span> Protocols</h4>
 <div class="outline-text-4" id="text-2-1-5">
 <p>
 Open protocols:
 </p>
 <ul class="org-ul">
 <li>defined in RFC</li>
-<li>allows for interoperatbility</li>
+<li>allows for interoperability</li>
 <li>eg: http, smtp</li>
 </ul>
 
@@ -830,7 +948,7 @@ Open protocols:
 Proprietary protocols:
 </p>
 <ul class="org-ul">
-<li>eg. sype</li>
+<li>eg. Skype</li>
 </ul>
 
 <p>
@@ -855,35 +973,1523 @@ requirements
 </p>
 <ul class="org-ul">
 <li>Reliable transport send &rarr; receive</li>
+<li>Flow control (doesn't overwhelm receiver)</li>
+<li>Congestion control (throttle sender when network overloaded)</li>
+<li>Does not provide: timing, minimum throughput guarantee</li>
+<li>Connection oriented: setup required between client &amp; server process</li>
+</ul>
+
+<p>
+<b>UDP (User datagram Protocol)</b>
+</p>
+<ul class="org-ul">
+<li>unreliable data transfer between sending and receiving</li>
+<li>does not provide: reliability, flow control, congestion control,
+timing, throughput guarantee, security, or connection setup</li>
+</ul>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>App</b></th>
+<th scope="col" class="org-left"><b>App layer protocol</b></th>
+<th scope="col" class="org-left"><b>underlying transport protocol</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">email</td>
+<td class="org-left">SMTP [RFC 2821]</td>
+<td class="org-left">TCP</td>
+</tr>
+
+<tr>
+<td class="org-left">remote terminal access</td>
+<td class="org-left">Telnet [RFC 854]</td>
+<td class="org-left">TCP</td>
+</tr>
+
+<tr>
+<td class="org-left">web</td>
+<td class="org-left">HTTP [RFC 2616]</td>
+<td class="org-left">TCP</td>
+</tr>
+
+<tr>
+<td class="org-left">file transfer</td>
+<td class="org-left">FTP [RFC 959]</td>
+<td class="org-left">TCP</td>
+</tr>
+
+<tr>
+<td class="org-left">streaming</td>
+<td class="org-left">http [rtp 1889]</td>
+<td class="org-left">TCP or UDP</td>
+</tr>
+
+<tr>
+<td class="org-left">VoIP</td>
+<td class="org-left">SIP, RTP, proprietary</td>
+<td class="org-left">TCP or UDP</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org23ae0cc" class="outline-4">
+<h4 id="org23ae0cc"><span class="section-number-4">2.1.6</span> HTTP</h4>
+<div class="outline-text-4" id="text-2-1-6">
+<p>
+HTTP is a stateless protocol, server maintains no info about previous
+client requests
+<b>uses TCP</b>
+</p>
+<ul class="org-ul">
+<li>client initiates</li>
+<li>server accepts</li>
+<li>http messages (application-layer protocol messages) exchanged
+between browser (http client) and web server (http server)</li>
+<li>TCP connection closed</li>
+</ul>
+
+<p>
+<b>non-persistent</b>
+</p>
+<ul class="org-ul">
+<li>At most one object sent over TCP connection</li>
+<li>connection then closed</li>
+<li>downloading multiple objects required multiple connections</li>
+</ul>
+
+<p>
+<b>persistent</b>
+</p>
+<ul class="org-ul">
+<li>multiple objects can be sent over single TCP connection between
+client, server</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="http.png" alt="http.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="../img/http.png" alt="http.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge14310d" class="outline-4">
+<h4 id="orge14310d"><span class="section-number-4">2.1.7</span> User-server state: Cookies</h4>
+<div class="outline-text-4" id="text-2-1-7">
+<p>
+Four components:
+</p>
+<ol class="org-ol">
+<li>Cookie header line of http response message</li>
+<li>cookie header line in next http request message</li>
+<li>cookie file kept on user's host, managed by browser</li>
+<li>back-end database at website</li>
+</ol>
+
+<p>
+<b>uses</b>
+</p>
+<ul class="org-ul">
+<li>authentication</li>
+<li>shop cart</li>
+<li>recommend</li>
+<li>user session state (web-mail)</li>
+</ul>
+
+<p>
+<b>cookies and privacy</b>
+</p>
+<ul class="org-ul">
+<li>permit site to learn about users</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfa1e992" class="outline-4">
+<h4 id="orgfa1e992"><span class="section-number-4">2.1.8</span> Web caches (proxy server)</h4>
+<div class="outline-text-4" id="text-2-1-8">
+<ul class="org-ul">
+<li>acts as both client and server</li>
+<li>typically installed by ISP (uni, company, residential)</li>
+<li>reduce response time</li>
+<li>reduce traffic on access link</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org947f48e" class="outline-4">
+<h4 id="org947f48e"><span class="section-number-4">2.1.9</span> conditional GET</h4>
+<div class="outline-text-4" id="text-2-1-9">
+<ul class="org-ul">
+<li><b>goal</b>: don't send object if cache has up to date cached version</li>
+<li><b>cache</b>: specify date of cached copy in http request</li>
+<li><b>server</b>: response contains no object if cached copy up to date</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org18536ca" class="outline-3">
-<h3 id="org18536ca"><span class="section-number-3">2.2</span> FTP</h3>
+<div id="outline-container-org5dd0d29" class="outline-3">
+<h3 id="org5dd0d29"><span class="section-number-3">2.2</span> FTP</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+File Transfer Protocol 
+</p>
+
+<ul class="org-ul">
+<li>to/from remote host</li>
+<li>client/server model
+<ul class="org-ul">
+<li>initiated by client</li>
+<li>server: remote host</li>
+</ul></li>
+<li>Ftp: RFC 959</li>
+<li>Ftp server: port 21</li>
+</ul>
+</div>
 </div>
 
-<div id="outline-container-org3e32e2d" class="outline-3">
-<h3 id="org3e32e2d"><span class="section-number-3">2.3</span> Electronic mail: SMTP, POP3, IMAP</h3>
+<div id="outline-container-org8a833b8" class="outline-3">
+<h3 id="org8a833b8"><span class="section-number-3">2.3</span> Electronic mail: SMTP, POP3, IMAP</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>User agent</li>
+<li>mail server</li>
+<li>SMTP</li>
+</ul>
+
+<p>
+<b>Uses TCP on port 25</b>
+Three phases:
+</p>
+<ul class="org-ul">
+<li>handshaking</li>
+<li>Transfer</li>
+<li>closure</li>
+</ul>
 </div>
 
-<div id="outline-container-org579543d" class="outline-3">
-<h3 id="org579543d"><span class="section-number-3">2.4</span> DNS</h3>
+<div id="outline-container-org61f5903" class="outline-4">
+<h4 id="org61f5903"><span class="section-number-4">2.3.1</span> POP3</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<ul class="org-ul">
+<li>download &amp; delete</li>
+<li>cannot re-read file after client change</li>
+<li>stateless across sessions</li>
+<li>download-and-keep copies and different clients</li>
+</ul>
+</div>
 </div>
 
-<div id="outline-container-org658c8c0" class="outline-3">
-<h3 id="org658c8c0"><span class="section-number-3">2.5</span> Principles of network applications</h3>
+<div id="outline-container-org4518ee4" class="outline-4">
+<h4 id="org4518ee4"><span class="section-number-4">2.3.2</span> IMAP</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<ul class="org-ul">
+<li>keeps messages in one place:server</li>
+<li>allows user to organize messages in folders</li>
+<li>keeps user state across sessions:
+<ul class="org-ul">
+<li>names of folders and mappings between message IDs and folder name</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </div>
 
-<div id="outline-container-org6fdd6c4" class="outline-3">
-<h3 id="org6fdd6c4"><span class="section-number-3">2.6</span> P2P Apps</h3>
+<div id="outline-container-org286a20a" class="outline-3">
+<h3 id="org286a20a"><span class="section-number-3">2.4</span> DNS</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Domain Name System
+</p>
+
+<ul class="org-ul">
+<li>Names map IP to readable format</li>
+<li>Distributed database implemented in hierarchy of many name servers</li>
+<li>application-layer protocol: hosts, name servers communicate to
+resolve names (address/name translation)
+<ul class="org-ul">
+<li>Note: core Internet function implemented as application-layer
+protocol complexity at network's edge</li>
+</ul></li>
+
+<li><b>Root DNS Servers</b> over 400 worldwide (2016 numbers)</li>
+<li><b>Top-level domain (TLD) servers</b> for each of {com, org, ned, edu,
+gov, ie, at, jp, etc) there is a server or server cluster</li>
+<li><b>Authoritative DNS servers</b> publicly accessible records that map the
+names of the host companies to IP addresses</li>
+</ul>
+</div>
+
+
+<div id="outline-container-orgb2e06eb" class="outline-4">
+<h4 id="orgb2e06eb"><span class="section-number-4">2.4.1</span> DNS Services</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<ul class="org-ul">
+<li>Host-name to IP address translation</li>
+<li>host aliasing
+<ul class="org-ul">
+<li>canonical alias names</li>
+</ul></li>
+<li>mail server aliasing</li>
+<li>load distribution 
+<ul class="org-ul">
+<li>replicated web servers: many IP addresses correspond to one name</li>
+</ul></li>
+</ul>
+
+<p>
+<b>Why not centralize DNS?</b>
+</p>
+<ul class="org-ul">
+<li>single point of failure</li>
+<li>traffic volume</li>
+<li>distant centralized database</li>
+<li>maintenance</li>
+<li>doesn't scale</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfda821a" class="outline-4">
+<h4 id="orgfda821a"><span class="section-number-4">2.4.2</span> DNS Records</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<p>
+DNS: distributed db storing resource records (RR) 
+</p>
+
+<p>
+RR Format: (name, value, type, ttl)
+</p>
+
+<p>
+<b>type=A</b>
+</p>
+<ul class="org-ul">
+<li>name is host-name</li>
+<li>value is IP</li>
+</ul>
+
+<p>
+<b>type=NS</b>
+</p>
+<ul class="org-ul">
+<li>name is domain</li>
+<li>value is host-name of authoritative name server for this domain</li>
+</ul>
+
+<p>
+<b>type=CNAME</b>
+</p>
+<ul class="org-ul">
+<li>name is alias for some "canonical" real name</li>
+<li>www.ibm.com
+<ul class="org-ul">
+<li>servereast.backup2.ibm.com</li>
+<li>value is canonical name</li>
+</ul></li>
+</ul>
+
+<p>
+<b>type=MX</b>
+</p>
+<ul class="org-ul">
+<li>value is name of mail server associated with name</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org1c521a7" class="outline-4">
+<h4 id="org1c521a7"><span class="section-number-4">2.4.3</span> Attacking DNS</h4>
+<div class="outline-text-4" id="text-2-4-3">
+<p>
+<b>DDoS attacks</b>
+</p>
+<ul class="org-ul">
+<li>Bombard servers with traffic
+<ul class="org-ul">
+<li>Not successful to date</li>
+<li>traffic filtered</li>
+<li>local DNS servers cache IPs of TLD servers, allowing root server
+bypass</li>
+</ul></li>
+<li>Bombard TLD (top level domain) servers
+<ul class="org-ul">
+<li>potentially more dangerous</li>
+</ul></li>
+</ul>
+
+<p>
+<b>Redirect attacks</b>
+</p>
+<ul class="org-ul">
+<li>man in the middle attacks
+<ul class="org-ul">
+<li>intercept queries</li>
+</ul></li>
+<li>DNS poisoning
+<ul class="org-ul">
+<li>send bogus replies to DNS server, which caches</li>
+</ul></li>
+</ul>
+
+<p>
+<b>Exploit DNS for DDoS</b>
+</p>
+<ul class="org-ul">
+<li>send queries with spoofed source address: target IP</li>
+<li>requires amplification</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdebe8e0" class="outline-3">
+<h3 id="orgdebe8e0"><span class="section-number-3">2.5</span> Principles of network applications</h3>
+<div class="outline-text-3" id="text-2-5">
+</div>
+<div id="outline-container-org7c89510" class="outline-4">
+<h4 id="org7c89510"><span class="section-number-4">2.5.1</span> Server/client</h4>
+<div class="outline-text-4" id="text-2-5-1">
+<ul class="org-ul">
+<li>send one copy F/u<sub>S</sub></li>
+<li>send N copes NF/u<sub>s</sub></li>
+</ul>
+
+<p>
+Client must download file copy
+</p>
+<ul class="org-ul">
+<li>d<sub>min</sub> = min client dl rate</li>
+<li>min client download time: F/d<sub>min</sub></li>
+</ul>
+
+<p>
+<b>Distribution time</b>
+</p>
+
+<p>
+D<sub>c</sub>-s &gt; mac{NF/u<sub>s</sub> , F/d<sub>min</sub>}
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd6b1cb4" class="outline-4">
+<h4 id="orgd6b1cb4"><span class="section-number-4">2.5.2</span> P2P</h4>
+<div class="outline-text-4" id="text-2-5-2">
+<p>
+Max upload rate:  u<sub>s</sub> + &Sigma; u<sub>i</sub>
+</p>
+
+<p>
+distribution time (<i>increases linearly in N</i>):
+</p>
+
+<p>
+D<sub>p2p</sub> &gt; max { F/u<sub>s</sub>, F/d<sub>min</sub>, NF/(u<sub>s</sub> + &Sigma; u<sub>i</sub>) }
+</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-org96a59ff" class="outline-3">
+<h3 id="org96a59ff"><span class="section-number-3">2.6</span> P2P Apps</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Commonly used to distribute software
+</p>
+
+<p>
+Distributed hash table (DHT)
+</p>
+
+<p>
+DHT: a distributed P2P database
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org27e406e" class="outline-2">
+<h2 id="org27e406e"><span class="section-number-2">3</span> Transport Layer</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org2b591d6" class="outline-3">
+<h3 id="org2b591d6"><span class="section-number-3">3.1</span> Transport Services &amp; Protocols</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>Provide logical communication between app processes running on
+different hosts</li>
+<li>Transport protocols run in and systems
+<ul class="org-ul">
+<li>Send side: breaks app messages into segments, passes to network layer</li>
+<li>receiver side: reassemble segments into messages, passes to app
+layer</li>
+</ul></li>
+<li>More than one transport protocol available to apps
+<ul class="org-ul">
+<li>Internet: TCP &amp; UDP</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org72aee4c" class="outline-3">
+<h3 id="org72aee4c"><span class="section-number-3">3.2</span> Multiplexing and Demultiplexing</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>Multiplexing at sender: handle data from multiple sockets, add
+transport  header (later used for demultiplexing)</li>
+<li>Demultiplexing at receiver: use header info to deliver received
+segments to correct socket</li>
+</ul>
+</div>
+
+<div id="outline-container-org9315bfc" class="outline-4">
+<h4 id="org9315bfc"><span class="section-number-4">3.2.1</span> Port</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+Simply a number used by a particular software to identify its data
+coming from the internet
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga6184ea" class="outline-4">
+<h4 id="orga6184ea"><span class="section-number-4">3.2.2</span> Socket</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+IP Address + Port num. Used by another computer to send data to
+software on a particular machine 
+</p>
+<ul class="org-ul">
+<li>IP = Machine</li>
+<li>Port = Software</li>
+</ul>
+
+
+<p>
+\break
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2f13e58" class="outline-3">
+<h3 id="org2f13e58"><span class="section-number-3">3.3</span> Demultiplexing</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>Host receives IP datagrams
+<ul class="org-ul">
+<li>Each datagram has source IP address, destination IP address</li>
+<li>Each datagram carries one transport-layer segment</li>
+</ul></li>
+<li>Host uses IP address &amp; port numbers to direct segment to appropriate
+socket</li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>TCP/UDP segment format</label><pre class="src src-artist">
+&lt;-----------32 bits---------&gt;
++-------------+-------------+
+| src port #  | dest port # |
+|_____________|_____________|
+|                           |
+|     other header fields   |
+|___________________________|
+|                           |
+|       application data    |   
+|       payload             |
+|___________________________|
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org789bf6f" class="outline-4">
+<h4 id="org789bf6f"><span class="section-number-4">3.3.1</span> Connection-less Dmuxing</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+When host receives UDP segment:
+</p>
+<ul class="org-ul">
+<li>checks destination port number in segment</li>
+<li>directs UDP segment to socket with that port number</li>
+</ul>
+
+<p>
+IP datagrams with some destination port number, but different source IP
+and/or source port numbers will be directed to same socket at destination.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org89c020d" class="outline-4">
+<h4 id="org89c020d"><span class="section-number-4">3.3.2</span> Connection-oriented Dmux</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+TCP socket identified by 4-tuple:
+</p>
+<ul class="org-ul">
+<li>Source IP address</li>
+<li>Source port number</li>
+<li>Destination IP address</li>
+<li>Dest port number</li>
+</ul>
+
+<p>
+Server host may support many simultaneous TCP sockets: each socket
+identified by its own 4-tuple.Web servers have different sockets for
+each connecting client, non persistent http will have different socket
+for each request
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf5277bd" class="outline-3">
+<h3 id="orgf5277bd"><span class="section-number-3">3.4</span> Connection-less Transport UDP</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>No handshaking between UDP, sender, receiver</li>
+<li>each UDP segment handled independently of others</li>
+</ul>
+
+<p>
+UDP uses:
+</p>
+<ul class="org-ul">
+<li>streaming multimedia apps (loss tolerant, rate sensitive)</li>
+<li>DNS</li>
+<li>best effort service</li>
+</ul>
+
+<p>
+UDP segments may be
+</p>
+<ul class="org-ul">
+<li>lost</li>
+<li>delivered out-of-order to app</li>
+</ul>
+
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>UDP segment format</label><pre class="src src-artist">
+&lt;-----------32 bits---------&gt;
++-------------+-------------+
+| src port #  | dest port # |
+|_____________|_____________|
+| length      | checksum    |
+|_____________|_____________|
+|                           |
+|     other header fields   |
+|___________________________|
+|                           |
+|       application data    |   
+|       payload             |
+|___________________________|
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5be7052" class="outline-4">
+<h4 id="org5be7052"><span class="section-number-4">3.4.1</span> Why UDP?</h4>
+<div class="outline-text-4" id="text-3-4-1">
+<ul class="org-ul">
+<li>No connection establishment (which can add delay)</li>
+<li>Simple: no connection state at sender, receiver</li>
+<li>Small header size</li>
+<li>No congestion control: UDP can blast away as fast as desired</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb8cb0cc" class="outline-3">
+<h3 id="orgb8cb0cc"><span class="section-number-3">3.5</span> Principles of Reliable Data Transfer</h3>
+<div class="outline-text-3" id="text-3-5">
+
+<div class="figure">
+<p><img src="../img/RDT.png" alt="RDT.png" />
+</p>
+<p><span class="figure-number">Figure 7: </span>Reliable Data Transfer (RDT)</p>
+</div>
+</div>
+
+<div id="outline-container-org45d0335" class="outline-4">
+<h4 id="org45d0335"><span class="section-number-4">3.5.1</span> RDT: Getting Started</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+Relies on four functions
+</p>
+
+<pre class="example">
+
+rdt_send()
+
+deliver_data()
+
+udt_send()
+
+rdt_rcv()
+
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org53026c7" class="outline-4">
+<h4 id="org53026c7"><span class="section-number-4">3.5.2</span> Dependency between event &amp; state</h4>
+<div class="outline-text-4" id="text-3-5-2">
+
+<div class="figure">
+<p><img src="../img/eventStateDependency.png" alt="eventStateDependency.png" />
+</p>
+<p><span class="figure-number">Figure 8: </span>Event -&gt;&lt;- State dependency</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga420972" class="outline-4">
+<h4 id="orga420972"><span class="section-number-4">3.5.3</span> RDT 1.0</h4>
+<div class="outline-text-4" id="text-3-5-3">
+<p>
+Reliable data transfer over a reliable channel. Underlying channel is
+perfectly reliable
+</p>
+<ul class="org-ul">
+<li>no bit errors</li>
+<li>no loss of packets</li>
+</ul>
+
+<p>
+Separate FSMs for sender, receiver:
+</p>
+<ul class="org-ul">
+<li>sender sends data into underlying channel</li>
+<li>receiver reads data from underlying channel</li>
+</ul>
+
+<p>
+<b>a. rdt1.0 sending side</b>
+</p>
+
+
+<div class="figure">
+<p><img src="rdt1.0senderFSM.png" alt="rdt1.0senderFSM.png" />
+</p>
+</div>
+
+<p>
+<b>b. rdt1.0: receiving side</b>
+</p>
+
+<div class="figure">
+<p><img src="rdt1.0receiverFSM.png" alt="rdt1.0receiverFSM.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org8db6d14" class="outline-4">
+<h4 id="org8db6d14"><span class="section-number-4">3.5.4</span> RDT 2.0</h4>
+<div class="outline-text-4" id="text-3-5-4">
+<p>
+Channel with bit errors: underlying channel may flip bits in packet
+</p>
+<ul class="org-ul">
+<li>checksum to detect bit</li>
+</ul>
+
+<p>
+<b>Question</b>: How to recover from errors?
+</p>
+
+<ul class="org-ul">
+<li>Acknowledgements (ACKs): receiver explicitly tells sender that pkt
+received OK</li>
+<li>Negative acknowledgements (NAKs): receiver explicitly tells sender
+that pkt had errors</li>
+<li>Sender re-transmits pkt on receipt of NAK</li>
+</ul>
+
+<p>
+<b>FATAL FLAW</b>
+ACK/NAK can be corrupted
+</p>
+<ul class="org-ul">
+<li>sender doesn't know what happened at receiver</li>
+<li>can't just re-transmit possible duplicate</li>
+</ul>
+
+<p>
+Handling duplicates:
+</p>
+<ul class="org-ul">
+<li>Sender retransmits current pkt if ACK/NAK corrupted</li>
+<li>Sender adds sequence number to each pkt</li>
+<li>Receiver discards (doesn't deliver up) duplicate pkt</li>
+</ul>
+
+<p>
+Stop and wait:
+</p>
+<ul class="org-ul">
+<li>sender sends one packet, then waits for receiver to respond</li>
+</ul>
+
+
+<p>
+<b>a. rdt2.0 sending side</b>
+</p>
+
+
+<div class="figure">
+<p><img src="rdt2.0senderFSM.png" alt="rdt2.0senderFSM.png" />
+</p>
+</div>
+
+<p>
+<b>a. rdt2.0 receiving side</b>
+</p>
+
+
+<div class="figure">
+<p><img src="rdt2.0receivingFSM.png" alt="rdt2.0receivingFSM.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org2940ead" class="outline-4">
+<h4 id="org2940ead"><span class="section-number-4">3.5.5</span> RDT 2.1</h4>
+<div class="outline-text-4" id="text-3-5-5">
+<p>
+Sender:
+</p>
+<ul class="org-ul">
+<li>Seq number added to pkt</li>
+<li>Two sequence numbers (0,1) will suffice</li>
+<li>Must check if ACK/NAK corrupted</li>
+<li>Twice as many states
+<ul class="org-ul">
+<li>states must "remember" whether "expected" pkt should have sequence
+number of 0 or 1</li>
+</ul></li>
+</ul>
+
+<p>
+Receiver: 
+</p>
+<ul class="org-ul">
+<li>Must check if received packet is duplicate
+<ul class="org-ul">
+<li>State indicates whether 0 or 1 expected pkt sequence number</li>
+</ul></li>
+</ul>
+
+<p>
+Note: receiver can not(!) know if its last ACK/NAK received okay at
+sender 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3a59a0f" class="outline-4">
+<h4 id="org3a59a0f"><span class="section-number-4">3.5.6</span> RDT 2.2: A NAK-free protocol</h4>
+<div class="outline-text-4" id="text-3-5-6">
+<p>
++Same functionality as <b>RDT 2.1</b>, using ACKs only 
+</p>
+<ul class="org-ul">
+<li>Instead of NAK, receiver sends ACK for last pkt received OK
+<ul class="org-ul">
+<li>receiver must explicitly include sequence number of packet being
+ACKed</li>
+</ul></li>
+<li>Duplicate ACK at sender results in same action as NAK: re-transmit
+current pkt</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org30e3700" class="outline-4">
+<h4 id="org30e3700"><span class="section-number-4">3.5.7</span> RDT 3.0: Channels with errors and loss</h4>
+<div class="outline-text-4" id="text-3-5-7">
+<p>
+<b>New assumption</b>: underlying channel can also lose packets (data,
+ACKs)
+</p>
+<ul class="org-ul">
+<li>checksum, sequence number, ACKs, transmission will be of help
+&#x2026; but not enough</li>
+</ul>
+
+<p>
+<b>Approach</b>: Sender waits reasonable amount of time for ACK
+</p>
+<ul class="org-ul">
+<li>retransmits if no ACK received in this time</li>
+<li>if pkt (or ACK) just delayed (not lost)
+<ul class="org-ul">
+<li>re-transmission will be duplicate, but sequence numbers already
+handles this</li>
+<li>receiver must specific sequence number of pkt being ACK</li>
+</ul></li>
+<li>Requires countdown timer</li>
+</ul>
+
+
+
+
+<div class="figure">
+<p><img src="RDT3.0.png" alt="RDT3.0.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org260e011" class="outline-3">
+<h3 id="org260e011"><span class="section-number-3">3.6</span> Pipelined Protocols</h3>
+<div class="outline-text-3" id="text-3-6">
+
+<div class="figure">
+<p><img src="../img/pipelined_protocols.png" alt="pipelined_protocols.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgac4220d" class="outline-4">
+<h4 id="orgac4220d"><span class="section-number-4">3.6.1</span> Got-back-N</h4>
+<div class="outline-text-4" id="text-3-6-1">
+<ul class="org-ul">
+<li>Sender can have up to N unacked packets in a pipeline</li>
+<li>Receiver only sends cumulative ack
+<ul class="org-ul">
+<li>doesn't ack packet if there is a gap</li>
+</ul></li>
+<li>Sender has a timer for oldest unacked packet
+<ul class="org-ul">
+<li>when timer expires, re-transmit all unacked packets</li>
+</ul></li>
+</ul>
+
+<p>
+Packets also carry status tag, sending happens through a window
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3148dd2" class="outline-4">
+<h4 id="org3148dd2"><span class="section-number-4">3.6.2</span> Selective repeat</h4>
+<div class="outline-text-4" id="text-3-6-2">
+<ul class="org-ul">
+<li>Sender can have up to N unacked packets in a pipeline</li>
+<li>Receiver sends individual ack for each packet</li>
+<li>Sender maintains timer for each packet</li>
+<li>When timer expires, re-transmit only that unacked packet</li>
+</ul>
+
+
+<p>
+Individual acknowledgements happen on a per packet basis
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org15d4989" class="outline-3">
+<h3 id="org15d4989"><span class="section-number-3">3.7</span> TCP</h3>
+<div class="outline-text-3" id="text-3-7">
+</div>
+<div id="outline-container-org4b8d0e9" class="outline-4">
+<h4 id="org4b8d0e9"><span class="section-number-4">3.7.1</span> Overview</h4>
+<div class="outline-text-4" id="text-3-7-1">
+<p>
+A TCP "connection" is not an end-to-end switched circuit. It exists
+rather as a logical connection, where common state resides only in the
+TCPs in the two communicating end systems. None of the intermediate
+network or link layer elements retain any information about the
+connection and are in fact "oblivious" that even one exists.
+"Multicasting" is not possible as the connection needs to be point to
+point as a <b>full duplex service</b>.
+</p>
+
+<ul class="org-ul">
+<li>RFCs: 737, 1122, 1323, 2018, 2581</li>
+<li>Point to point (<b>connection-oriented</b>)
+<ul class="org-ul">
+<li>one sender, one receiver</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7cd5eb0" class="outline-4">
+<h4 id="org7cd5eb0"><span class="section-number-4">3.7.2</span> TCP seq Number Acks</h4>
+<div class="outline-text-4" id="text-3-7-2">
+<p>
+Sequence numbers:
+</p>
+<ul class="org-ul">
+<li>byte stream "number" of first byte in segment's data</li>
+</ul>
+
+<p>
+Acknowledgements:
+</p>
+<ul class="org-ul">
+<li>Seq number of next byte expected from other side</li>
+<li>cumulative ACK</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="telnetEG.png" alt="telnetEG.png" />
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org877a2e2" class="outline-4">
+<h4 id="org877a2e2"><span class="section-number-4">3.7.3</span> Round Trip Time, Timeout</h4>
+<div class="outline-text-4" id="text-3-7-3">
+<p>
+<b>Q Set?</b>
+</p>
+<ul class="org-ul">
+<li>longer than RTT
+<ul class="org-ul">
+<li>RTT varies</li>
+</ul></li>
+<li>too short: premature timeout, unnecessary transmission</li>
+<li>too long: show reaction to segment loss</li>
+</ul>
+
+<p>
+<b>Estimate ?</b>
+</p>
+<ul class="org-ul">
+<li>Sample RTT: measured time from segment transmission until ACK
+receipt 
+<ul class="org-ul">
+<li>ignore transmissions</li>
+</ul></li>
+<li>sample RTT will vary, want RTT smoother
+<ul class="org-ul">
+<li>average several recent measurements</li>
+</ul></li>
+</ul>
+
+
+<p>
+Estimated RTT = ( 1 - &alpha; ) * EstmiatedRTT + &alpha; * SampleRTT
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge817b01" class="outline-4">
+<h4 id="orge817b01"><span class="section-number-4">3.7.4</span> Re-transmission</h4>
+<div class="outline-text-4" id="text-3-7-4">
+<p>
+<b>Cumulative Acknowledgement</b> indicates that all packets with a sequence
+</p>
+
+
+<p>
+<b>TCP ACK Generation</b>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">event receiver</th>
+<th scope="col" class="org-left">TCT receiver action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">in order all up to</td>
+<td class="org-left">delayed ACk, wait up to 500ms for</td>
+</tr>
+
+<tr>
+<td class="org-left">expected seq # acked</td>
+<td class="org-left">for next segment, if none send ack</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">arrived in order</td>
+<td class="org-left">immediately send single</td>
+</tr>
+
+<tr>
+<td class="org-left">one other seq ack pending</td>
+<td class="org-left">cumulative ack, acking both</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">in order segs</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">out of order GAP detected</td>
+<td class="org-left">immediately send duplicate ACK</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">with seq # of expected byte</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">missing segment arrives</td>
+<td class="org-left">immediate ACK sent</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+<b>Fast Re-transmit</b>
+</p>
+
+<p>
+In the event of a lost segment in the course of a transfer, this can
+lead to a backlog of duplicate ACKs. In order to overcome this problem,
+if the sender receives three duplicates ACKs for a segment, it
+retransmits this particular segment using <b>fast re-transmit</b> before the
+segment's timer has expired.
+</p>
+
+<pre class="example">
+
+event: ACK received, with ACK field value of y 
+	if(y &gt; SendBase) {
+	    sendBase = y
+	    if(there are currently any not yet acknowledged segments)
+	       start timer
+	}
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6421296" class="outline-4">
+<h4 id="org6421296"><span class="section-number-4">3.7.5</span> Flow Control</h4>
+<div class="outline-text-4" id="text-3-7-5">
+<ul class="org-ul">
+<li>Receiver controls sender, so sender won't overflow receiver's buffer
+by sending too much, too fast</li>
+<li>Receiver advertises window space into header of request ack</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org447ef33" class="outline-4">
+<h4 id="org447ef33"><span class="section-number-4">3.7.6</span> Connection Management</h4>
+<div class="outline-text-4" id="text-3-7-6">
+<ul class="org-ul">
+<li>TCP: 3 way handshakes</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="connectionManagement.png" alt="connectionManagement.png" />
+</p>
+</div>
+
+
+
+<div class="figure">
+<p><img src="TCPclosing.png" alt="TCPclosing.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org190e7cf" class="outline-4">
+<h4 id="org190e7cf"><span class="section-number-4">3.7.7</span> Principles of Congestion Control</h4>
+<div class="outline-text-4" id="text-3-7-7">
+<p>
+otherwise known as traffic ;-)
+</p>
+
+<p>
+Another cost of congestion: when packet dropped, any "upstream
+transmission capacity used for that packet was wasted!"
+</p>
+
+<ul class="org-ul">
+<li>Additive increase multiplicative decrease (AIMD)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org612c72c" class="outline-2">
+<h2 id="org612c72c"><span class="section-number-2">4</span> Network Layer</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org195de97" class="outline-3">
+<h3 id="org195de97"><span class="section-number-3">4.1</span> Data Plane</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>Transport segments from sending to receiving host</li>
+<li>On send side encapsulates segments into datagrams</li>
+<li>On receiving side, delivers segments to transport layer</li>
+<li>Router examines header Fields in all IP datagrams passing through it</li>
+</ul>
+</div>
+
+<div id="outline-container-orgda0669c" class="outline-4">
+<h4 id="orgda0669c"><span class="section-number-4">4.1.1</span> Forwarding</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<ul class="org-ul">
+<li><b>defn</b> Move packets from routers' input to appropriate router output</li>
+<li><b>analogy</b> planning a trip from source to destination</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga4d8bd5" class="outline-4">
+<h4 id="orga4d8bd5"><span class="section-number-4">4.1.2</span> Routing</h4>
+<div class="outline-text-4" id="text-4-1-2">
+<ul class="org-ul">
+<li><b>defn</b> determine route taken by packets from sources to destination</li>
+<li><b>analogy</b> getting through a single intersection</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6f5a332" class="outline-3">
+<h3 id="org6f5a332"><span class="section-number-3">4.2</span> Control Plane</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-artist">
+	       { routing algorithm } -&gt; determines end to end 
+					path through network
+
+Control plane -&gt; software-defined networking
+
+..............................................
+
+Data plane       local forwarding table
+	     _______________________________
+	      header value | output link 
+	     --------------|--------------
+		   0100    | 3
+		   0101    | 2 
+		   0111    | 2 
+		   1001    | 1
+
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgcf7216d" class="outline-3">
+<h3 id="orgcf7216d"><span class="section-number-3">4.3</span> Network Services Model</h3>
+<div class="outline-text-3" id="text-4-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Net Arch</th>
+<th scope="col" class="org-left">Model</th>
+<th scope="col" class="org-left">Bandwidth</th>
+<th scope="col" class="org-left">Loss</th>
+<th scope="col" class="org-left">Order</th>
+<th scope="col" class="org-left">Timing</th>
+<th scope="col" class="org-left">Congestion feeback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">internet</td>
+<td class="org-left">best effort</td>
+<td class="org-left">none</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+<td class="org-left">no (inferred via loss)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">ATM</td>
+<td class="org-left">CBR</td>
+<td class="org-left">const rate</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">no congestion</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">ATM</td>
+<td class="org-left">VBR</td>
+<td class="org-left">const rate</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">yes</td>
+<td class="org-left">no congestion</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">ATM</td>
+<td class="org-left">ABR</td>
+<td class="org-left">grntd. min</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">ATM</td>
+<td class="org-left">UBR</td>
+<td class="org-left">none</td>
+<td class="org-left">no</td>
+<td class="org-left">yes</td>
+<td class="org-left">no</td>
+<td class="org-left">no</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-org7331d20" class="outline-4">
+<h4 id="org7331d20"><span class="section-number-4">4.3.1</span> Possible service provisions</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<ul class="org-ul">
+<li>guaranteed delivery: packet sent by host will eventually arrive at
+destination host</li>
+<li>guaranteed delivery with bounded delay: e.g. within 100msec</li>
+<li>In-order packet delivery: guarantees that packets arrive at
+destination in the order that they were sent</li>
+<li>guaranteed</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org27094f1" class="outline-3">
+<h3 id="org27094f1"><span class="section-number-3">4.4</span> Virtual circuit &amp; datagram Network</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li>Datagram network provides network-layer connectionless service</li>
+<li>virtual-circuit network provides network-layer connection service</li>
+<li>analogous to TCP/UDP connection-oriented/conectionless transport
+layer services, but:
+<ul class="org-ul">
+<li>Service: host-to-host</li>
+<li>No choice: network provides one or the other</li>
+<li>Implmentation: in network core</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org75506e8" class="outline-4">
+<h4 id="org75506e8"><span class="section-number-4">4.4.1</span> Virtual circuits</h4>
+<div class="outline-text-4" id="text-4-4-1">
+<ul class="org-ul">
+<li>"Source-to-destination path behaves much like telephone circuit"
+<ul class="org-ul">
+<li>Performance-wise</li>
+<li>Network actions along source-to-dest path</li>
+</ul></li>
+<li>Call setup, teardown for each call before data can flow</li>
+<li>Each packet carries VC identifier (not destination host address)</li>
+<li>Every router on source-dest path maintains "state" for each passing connection</li>
+<li>Link, router resources (bandwidth, buffers) may be allocated to VC
+(dedicated resources = predictable results)</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orga90ef0a" class="outline-4">
+<h4 id="orga90ef0a"><span class="section-number-4">4.4.2</span> Datagram forwarding table</h4>
+<div class="outline-text-4" id="text-4-4-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">local forwarding table</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">header value</td>
+<td class="org-right">output lnk</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+
+
+<ul class="org-ul">
+<li>4 billion IP addresses so rather than list individual destination
+addresses, list range of addresses (aggregate table entries)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94ec6ad" class="outline-3">
+<h3 id="org94ec6ad"><span class="section-number-3">4.5</span> Internet (datagram)</h3>
+<div class="outline-text-3" id="text-4-5">
+<ul class="org-ul">
+<li>Data exchange amoung computers
+<ul class="org-ul">
+<li>"Elastic" service, no strct timing requirements</li>
+</ul></li>
+<li>Many link types 
+<ul class="org-ul">
+<li>different characteristics</li>
+<li>uniform service difficult</li>
+</ul></li>
+<li>"Smart" end systems (computers)
+<ul class="org-ul">
+<li>can adapt, perform control, error recovery</li>
+<li>simple inside network, complexity at "edge"</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1c7b0eb" class="outline-3">
+<h3 id="org1c7b0eb"><span class="section-number-3">4.6</span> ATM (VC)</h3>
+<div class="outline-text-3" id="text-4-6">
+<ul class="org-ul">
+<li>Evolved from telephony</li>
+<li>Human conversation:
+<ul class="org-ul">
+<li>Strict timing, reliability requirements</li>
+<li>Need for guaranteed service</li>
+</ul></li>
+<li>"Dumb" end systems
+<ul class="org-ul">
+<li>Telephones</li>
+<li>Complexity inside network</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org9cee167" class="outline-3">
+<h3 id="org9cee167"><span class="section-number-3">4.7</span> Router Architecture Overview</h3>
+<div class="outline-text-3" id="text-4-7">
+
+<div class="figure">
+<p><img src="./img/routerArchitecture.png" alt="routerArchitecture.png" />
+</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: adam</p>
-<p class="date">Created: 2020-09-17 Thu 10:09</p>
+<p class="date">Created: 2020-10-15 Thu 12:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
