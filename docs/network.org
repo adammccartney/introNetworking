@@ -1365,3 +1365,201 @@ Resulting forwarding table in u:
 | z           | (u.x) |
 
 
+*** Bellman-Ford (Distance Vector Algorithm)
+
+[[file:../img/graphAbstraction.png]]
+
++ Clearly, dv(z) = 5, dx(z) = 3, dw(z) = 3
++ B-F equation says: d_u (z) = min { c(u, x) + dv(z), c(u, x) + dx(z),
+  c(u,w) + dw(z) } = min { 2 + 5 , 1 + 3 , 5 + 3 } = 4
++ From time-to-time, each node sends its own distance vector estimate
+  to neighbors
++ When x receives new DV estimate from neighbor, it updates its own DV
+  using B-F equation: D_x (y) \leftarrow min_v { c(x, v) + D_v(y) }
+  for each node y \Epsilon N
++ Under minor, natural conditions, the estimate Dx(y) converge to the
+  actual least cost dx(y)
+
+
+*** Comparison of LS & DV Algorithms
+
+*Message Complexity*
++ LS: With n nodes, E links, O(nE) msgs sent
++ DV: Exchange between neighbors only 
+  - Convergence time varies
+
+*Robustness* What happens if router malfunctions?
++ LS: 
+  - Node can advertise incorrect /link cost/
+  - Each node computes only its own table
+
++ DV:
+  - DV node can advertise incorrect /path cost/
+  - Each node's table used by others error propagates through network
+
+*Domain*
++ DV => local networks
++ LS => Global networks
+
+*Speed of convergence*
++ LS: O(n2) algorithm requires O(nE) msgs
+  - may have oscillations
++ DV: convergence time varies
+  - may be routing loops
+  - count-to-infinity problem
+
+*Hierarchical Routing*
++ Routing study so far - idealization
++ All routers identical
++ Network "flat"
+... Not true in practice!
+
+Scale: with 600 million destinations:
++ Can't store all destinations in routing tables
++ Routing table exchange would swamp links
+
+Administrative autonomy
++ Internet = network of networkds
++ Each network admin may want to control routing in its own network
+
+
+** Routing in the Internet 
+
+*** Autonomous systems
+
++ Aggregate routers into regions /"Autonomous Systems" (AS)/
+
++ Routers in some AS run some routing protocol
+  - /"intra-AS" routing/ protocol
+
+  - Routers in different AS can be different intra-AS routing protocol
+
++ Gateway router:
+  - Routers in different AS can run different intra-AS routing protocol
+  - Has link to router in another AS
+
+[[file:../img/autonomousSystems.png]]
+
++ Suppose router in AS1 receives datagram destined outside of AS1
++ AS1 must:
+  1. Learn which destinations are reachable through AS2, which through
+     AS3
+  2. Propagate this reachability info to all routers in AS1 
+
+
+*** Intra-AS routing 
++ Also known as interior gateway protocols (IGP)
++ Most common intra-AS routing protocols:
+  - RIP: Routing Information Protocol
+  - OSPF: Open Shortest Path First
+  - IGRP: Interior Gateway Routing Protocol (Cisco Proprietary)
+
+*** RIP (Routing Information Protocol)
++ Included in BSD-Linux distribution in 1982
++ Distance vector algorithm
+  - distance metric: number of hops ( max = 15 hops), each link has
+    cost 1
+  - DVs exchanged with neighbors every 30 seconds in response message
+    (aka advertisement)
+  - Each advertisement: lists up to 25 destination subnets (in IP
+    addressing sense)
+
++ If no advertisement heard after 180 seconds, neighbor link declared
+  dead
+  - Routes via neighbor invalidated
+
+  - new advertisements sent to neighbors
+
+  - neighboers in turn send out new advertisements (if tables changed)
++ Link failure info quickly propagates to entire net
++ Poison reverse used to precent ping-pong loops (infinite distance =
+  16 hops)
+
+*** Open Shortest Path First
++ "Open" source
++ Uses link state algorithm
+  - LS packet dissemination
+  - Topology map at each node
+  - Route computation using Dijkstra's algorithm
++ OSPF advertisement carries one entry per neighbor
++ Advertisements flooded to entire AS 
+  - Carried in OSPF message directly over IP (rather than TCP or UDP)
++ Security: all OSPF messages authenticated (to prevent malicious intrusion)
++ Multiple some-cost paths allowed (only one in RIP)
++ For each link, multiple cost metrics for different ToS (e.g.:
+  satellite link cost set "low" for best effore ToS; high for real
+  time ToS
++ Integrated uni and multicast support 
+  - Multicast OSPF (MOSPF) uses some topology database as OSPF
++ Hierarchical OSPF in large domains
+
+
+*** Hierarchical OSPF
+
+[[file:../img/ospf.png]]
+
++ Two-level hierarchy: local area, backbone
+  - Link-state advertisements only in area
+  - Each node has detailed area topology; only know direction
+    (shortest path) to nets in other areas
+
+*** Border Gateway Protocol (BGP)
++ De Facto inter-domain routing protocol 
+  - "glue that holds the internet together"
+
++ BGP provides each AS a means to:
+  - eBGP: obtain subnet reachability information from neighboring ASs
+  - iBGP: propagate reachability information to all AS-internal routers
+  - Determins "good" routes to other networks based on reachability
+    information and policy
++ Allows subnet to advertise its existence to rest of internet: "I Am
+  Here!"
+
+*** Why different routing?
+
+[[file:../img/bgp.png]]
+
++ A, B, C are provider networks
++ x, w, y are customer (of provider networks)
++ x is /dual-homed/: attached to two networks
+  - x does not want to route B via X to C
+  - ... so x will not advertise to B a route to C
+
+*Policy*
++ Inter-AS: admin wants to control over how its traffic routed, who
+  routes through its net
++ intra-AS: single admin, so no policy decisions needed
+
+*Scale*
++ hierarchical routing saves table size, reduced update traffic
+
+*Performance*
++ intra-AS: can focus on performance
++ inter-AS: policy may dominate over performance
+
+*** Broadcast & Multitask routing
++ Deliver packets from source to all other nodes
++ Source duplication is ineffecient
+
+[[file:../img/broadcastMultitask.png]]
+
++ Flooding: When node receives broadcast packet, sends copy to all
+  neighbors
+  - Problems: cycles & broadcast storm
++ Controlled flooding: node only broadcasts packet if it hasn't
+  broadcast same packet before
+  - Node keeps track of packet ids already broadcasted
+  - Or reverse path forwarding (RPF): only forwarded packet if it
+    arrived on shortest path between node and source
+
++ Spanning tree:
+  - No redundent packets by any node
+
+  - First construct spanning tree
+
+  - Nodes then forwarded/make copies only along spanning tree
+
+[[file:../img/spanningTree.png]]
+
+*** Multicast routing 
++ Delivers to multiple but not all computers in the network
